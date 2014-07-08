@@ -137,7 +137,7 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_BannerController extends Xigen
 
                 if (isset($imageData['delete']) && $model->getBannerImage()) {
                     $imageHelper->removeImage($model->getBannerImage());
-                    $model->setImage(null);
+                    $model->setBannerImage(null);
                 }
 
                 // upload new image
@@ -180,7 +180,7 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_BannerController extends Xigen
                 
                 $this->_getSession()->setFormData($data);
                 $redirectPath   = '*/*/edit';
-                $redirectParams = array('id' => $this->getRequest()->getParam('id'));
+                $redirectParams = array('id' => $this->getRequest()->getParam($this->_bannerPrefix . 'id'));
                 
             }
         }

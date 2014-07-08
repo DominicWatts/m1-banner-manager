@@ -11,7 +11,7 @@ class Xigen_Bannermanager_Helper_Image extends Mage_Core_Helper_Abstract
      *
      * @var string
      */
-    const MEDIA_PATH    = 'post';
+    const MEDIA_PATH    = 'banner';
 
     /**
      * Maximum size for image in bytes
@@ -47,7 +47,7 @@ class Xigen_Bannermanager_Helper_Image extends Mage_Core_Helper_Abstract
      *
      * @var int
      */
-    const MAX_WIDTH = 800;
+    const MAX_WIDTH = 2000;
 
     /**
      * Array of image size limitation
@@ -69,7 +69,7 @@ class Xigen_Bannermanager_Helper_Image extends Mage_Core_Helper_Abstract
     protected $_allowedExtensions = array('jpg', 'gif', 'png');
 
     /**
-     * Return the base media directory for Post Item images
+     * Return the base media directory for Item images
      *
      * @return string
      */
@@ -79,17 +79,17 @@ class Xigen_Bannermanager_Helper_Image extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * Return the Base URL for Post Item images
+     * Return the Base URL for Item images
      *
      * @return string
      */
     public function getBaseUrl()
     {
-        return Mage::getBaseUrl('media') . '/' . self::MEDIA_PATH;
+        return Mage::getBaseUrl('media') . '/' . self::MEDIA_PATH . '/';
     }
 
     /**
-     * Remove post item image by image filename
+     * Remove item image by image filename
      *
      * @param string $imageFile
      * @return bool
@@ -119,7 +119,7 @@ class Xigen_Bannermanager_Helper_Image extends Mage_Core_Helper_Abstract
         if ($adapter->isUploaded($scope)) {
             // validate image
             if (!$adapter->isValid($scope)) {
-                Mage::throwException(Mage::helper('xigen_bannermanager')->__('Uploaded image is not valid'));
+                Mage::throwException(Mage::helper('xigen_bannermanager')->__('Uploaded image is either too small or too large'));
             }
             $upload = new Varien_File_Uploader($scope);
             $upload->setAllowCreateFolders(true);
@@ -134,14 +134,14 @@ class Xigen_Bannermanager_Helper_Image extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * Return URL for resized Post Item Image
+     * Return URL for resized Item Image
      *
      * @param Xigen_Bannermanager_Model_Item $item
      * @param integer $width
      * @param integer $height
      * @return bool|string
      */
-    public function resize(Xigen_Bannermanager_Model_Post $item, $width, $height = null)
+    public function resize($item, $width, $height = null)
     {
         if (!$item->getImage()) {
             return false;

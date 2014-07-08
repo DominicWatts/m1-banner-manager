@@ -49,7 +49,7 @@ $bannerRows = array(
     array(
         $bannerPrefix . 'title'         => 'Banner One',
         $bannerPrefix . 'link'          => '/banner-one/',
-        $bannerPrefix . 'image'         => 'banner-one.jpg',
+        $bannerPrefix . 'image'         => 'banner-1.jpg',
         $bannerPrefix . 'caption'       => 'Pellentesque habitant morbi tristique. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.',
         $bannerPrefix . 'slider_id'     => '1',
         $bannerPrefix . 'sort_order'    => '1',
@@ -58,7 +58,7 @@ $bannerRows = array(
     array(
         $bannerPrefix . 'title'         => 'Banner Two',
         $bannerPrefix . 'link'          => '/banner-two/',
-        $bannerPrefix . 'image'         => 'banner-two.jpg',
+        $bannerPrefix . 'image'         => 'banner-2.jpg',
         $bannerPrefix . 'caption'       => 'Pellentesque habitant morbi tristique. Ultricies eget, tempor sit amet, ante.',
         $bannerPrefix . 'slider_id'     => '1',
         $bannerPrefix . 'sort_order'    => '2',
@@ -67,7 +67,7 @@ $bannerRows = array(
     array(
         $bannerPrefix . 'title'         => 'Banner Three',
         $bannerPrefix . 'link'          => '/banner-three/',
-        $bannerPrefix . 'image'         => 'banner-three.jpg',
+        $bannerPrefix . 'image'         => 'banner-3.jpg',
         $bannerPrefix . 'caption'       => 'Pellentesque habitant morbi tristique. Vestibulum tortor ante.',
         $bannerPrefix . 'slider_id'     => '1',
         $bannerPrefix . 'sort_order'    => '1',

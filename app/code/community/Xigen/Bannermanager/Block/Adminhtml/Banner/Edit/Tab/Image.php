@@ -30,6 +30,24 @@ class Xigen_Bannermanager_Block_Adminhtml_Banner_Edit_Tab_Image extends Xigen_Ba
         $model = Mage::helper('xigen_bannermanager')->getBannerInstance();
 
 
+        /* @var $imageHelper Xigen_Bannermanager_Helper_Image */
+        $imageHelper = Mage::helper('xigen_bannermanager/image');
+        
+        if($model->getBannerImage()) {
+            $fieldset = $form->addFieldset('image_preview', array(
+                'legend'    => Mage::helper('xigen_bannermanager')->__('Image Preview'), 'class' => 'fieldset-wide'
+            ));
+
+            $fieldset->addField('preview', 'note', array(
+                'name'      => 'preview',
+                'label'     => Mage::helper('xigen_bannermanager')->__('Image Preview'),
+                'title'     => Mage::helper('xigen_bannermanager')->__('Image Preview'),
+                'after_element_html' => '<img src="' . $imageHelper->getBaseUrl() . $model->getBannerImage() . '" width="500" alt="' . $model->getBannerImage() . '" title="' . $model->getBannerImage() . '"/>',
+                'required'  => false,
+                'disabled'  => $isElementDisabled
+            ));
+        }
+        
         $fieldset = $form->addFieldset('image_fieldset', array(
             'legend'    => Mage::helper('xigen_bannermanager')->__('Image Thumbnail'), 'class' => 'fieldset-wide'
         ));
