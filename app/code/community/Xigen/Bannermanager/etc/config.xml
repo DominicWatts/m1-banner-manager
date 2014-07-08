@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Module configuration
+ *
+ * @author Xigen
+ */
+-->
+<config>
+    <modules>
+        <Xigen_Bannermanager>
+            <version>0.1.0</version>
+        </Xigen_Bannermanager>
+    </modules>
+    <global>
+        <models>
+            <xigen_bannermanager>
+                <class>Xigen_Bannermanager_Model</class>
+                <resourceModel>xigen_bannermanager_resource</resourceModel>
+            </xigen_bannermanager>
+            <xigen_bannermanager_resource>
+                <class>Xigen_Bannermanager_Model_Resource</class>
+                <entities>
+                    <banner>
+                        <table>xigen_bannermanager_banner</table>
+                    </banner>                    
+                    <slider>
+                        <table>xigen_bannermanager_slider</table>
+                    </slider>
+                </entities>
+            </xigen_bannermanager_resource>
+        </models>
+        <helpers>
+            <xigen_bannermanager>
+                <class>Xigen_Bannermanager_Helper</class>
+            </xigen_bannermanager>
+        </helpers>
+        <blocks>
+            <xigen_bannermanager>
+                <class>Xigen_Bannermanager_Block</class>
+            </xigen_bannermanager>
+        </blocks>
+        <resources>
+            <xigen_bannermanager_setup>
+                <setup>
+                    <module>Xigen_Bannermanager</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+            </xigen_bannermanager_setup>
+        </resources>
+    </global>
+    <frontend>
+        <routers>
+            <xigen_bannermanager>
+                <use>standard</use>
+                <args>
+                    <module>Xigen_Bannermanager</module>
+                    <frontName>bannermanager</frontName>
+                </args>
+            </xigen_bannermanager>
+        </routers>
+        <layout>
+            <updates>
+                <xigen_bannermanager>
+                    <file>xigen/bannermanager.xml</file>
+                </xigen_bannermanager>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Xigen_Bannermanager before="Mage_Adminhtml">Xigen_Bannermanager_Adminhtml</Xigen_Bannermanager>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <xigen_bannermanager>
+                    <file>xigen/bannermanager.xml</file>
+                </xigen_bannermanager>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

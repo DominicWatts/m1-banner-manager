@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Xigen
+ */
+-->
+<config>
+    <tabs>
+        <xigen translate="label" module="xigen_bannermanager">
+            <label>Xigen Extensions</label>
+            <sort_order>300</sort_order>
+        </xigen>
+    </tabs>
+    <sections>
+        <xigen_bannermanager translate="label" module="xigen_bannermanager">
+            <label>Banner Manager</label>
+            <tab>xigen</tab>
+            <sort_order>1800</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <bannermanager translate="label" module="xigen_bannermanager">
+                    <label>Banner Manager</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1800</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enable</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                    </fields>
+                </bannermanager>                    
+            </groups>
+        </xigen_bannermanager>
+    </sections>
+</config>

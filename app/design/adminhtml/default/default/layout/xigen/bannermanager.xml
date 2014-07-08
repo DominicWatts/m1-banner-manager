@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento backend layout
+ *
+ * @slider Xigen
+ */
+-->
+<layout>
+    <adminhtml_bannermanager_banner_index>
+        <reference name="content">
+            <block type="xigen_bannermanager/adminhtml_banner" name="bannermanager" />
+        </reference>
+    </adminhtml_bannermanager_banner_index>
+
+    <adminhtml_bannermanager_banner_grid>
+        <block type="xigen_bannermanager/adminhtml_banner_grid" name="root"/>
+    </adminhtml_bannermanager_banner_grid>
+
+    <adminhtml_bannermanager_banner_new>
+        <update handle="adminhtml_banner_edit" />
+    </adminhtml_bannermanager_banner_new>
+
+    <adminhtml_bannermanager_banner_edit>
+        <update handle="editor"/>
+        <reference name="content">
+            <block type="xigen_bannermanager/adminhtml_banner_edit" name="bannermanager_edit" />
+        </reference>
+        <reference name="left">
+            <block type="xigen_bannermanager/adminhtml_banner_edit_tabs" name="bannermanager_edit_tabs">
+                <block type="xigen_bannermanager/adminhtml_banner_edit_tab_main" name="bannermanager_edit_tab_main" />
+                <block type="xigen_bannermanager/adminhtml_banner_edit_tab_image" name="bannermanager_edit_tab_image" />
+                <action method="addTab"><name>main_section</name><block>bannermanager_edit_tab_main</block></action>
+                <action method="addTab"><name>image_section</name><block>bannermanager_edit_tab_image</block></action>
+            </block>
+        </reference>
+    </adminhtml_bannermanager_banner_edit>
+    
+        
+    <adminhtml_bannermanager_slider_index>
+        <reference name="content">
+            <block type="xigen_bannermanager/adminhtml_slider" name="bannermanager" />
+        </reference>
+    </adminhtml_bannermanager_slider_index>
+
+    <adminhtml_bannermanager_slider_grid>
+        <block type="xigen_bannermanager/adminhtml_slider_grid" name="root"/>
+    </adminhtml_bannermanager_slider_grid>
+
+    <adminhtml_bannermanager_slider_new>
+        <update handle="adminhtml_slider_edit" />
+    </adminhtml_bannermanager_slider_new>
+
+    <adminhtml_bannermanager_slider_edit>
+        <update handle="editor"/>
+        <reference name="content">
+            <block type="xigen_bannermanager/adminhtml_slider_edit" name="bannermanager_edit" />
+        </reference>
+        <reference name="left">
+            <block type="xigen_bannermanager/adminhtml_slider_edit_tabs" name="bannermanager_edit_tabs">
+                <block type="xigen_bannermanager/adminhtml_slider_edit_tab_main" name="bannermanager_edit_tab_main" />
+                   <action method="addTab"><name>main_section</name><block>bannermanager_edit_tab_main</block></action>
+            </block>
+        </reference>
+    </adminhtml_bannermanager_slider_edit>
+    
+    <adminhtml_bannermanager_slider_banner>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="xigen_bannermanager/adminhtml_slider_edit_tab_banner" name="banner.grid"/>
+        </block>
+    </adminhtml_bannermanager_slider_banner>
+    <adminhtml_bannermanager_slider_bannergrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="xigen_bannermanager/adminhtml_slider_edit_tab_banner" name="banner.grid"/>
+        </block>
+    </adminhtml_bannermanager_slider_bannergrid>
+</layout>
