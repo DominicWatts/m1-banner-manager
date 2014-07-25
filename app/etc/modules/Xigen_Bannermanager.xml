@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Xigen
+ */
+-->
+<config>
+    <modules>
+        <Xigen_Bannermanager>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Xigen_Bannermanager>
+    </modules>
+</config>
