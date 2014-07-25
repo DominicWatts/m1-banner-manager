@@ -1,0 +1,31 @@
+.banner {
+    position: relative;
+}
+img.banner_image {
+    /*position: absolute;*/
+}
+h3.banner_title {
+    background-color: #fdfdfd;
+    display: block;
+    font-size: 30px;
+    margin-left: 35%;
+    margin-right: 35%;
+    opacity: 0.9;
+    position: absolute;
+    text-align: center;
+    top: 10%;
+    width: 30%;
+}
+p.banner_caption {
+    background-color: #333;
+    color: #fdfdfd;
+    display: block;
+    font-size: 20px;
+    margin-left: 25%;
+    margin-right: 25%;
+    opacity: 0.85;
+    position: absolute;
+    text-align: center;
+    top: 45%;
+    width: 50%;
+}

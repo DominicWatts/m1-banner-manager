@@ -40,6 +40,28 @@ class Xigen_Bannermanager_Helper_Admin extends Mage_Core_Helper_Abstract {
     }
     
     /**
+     * Random/orderly Grid array
+     * 
+     * @return array
+     */
+    public function getRandomOrderly() {
+        return array(
+            'random' => Mage::helper('xigen_bannermanager')->__('Random'),
+            'orderly' => Mage::helper('xigen_bannermanager')->__('Orderly'),
+        );
+    }
+    
+    /**
+     * Random/orderly Grid value
+     * @param $value
+     * @return string
+     */
+    public function getRandomOrderlyValue($value) {
+        $array = $this->getRandomOrderly();
+        return $array[$value];
+    }
+    
+    /**
      * Load sliders
      * 
      * @return Xigen_Bannermanager_Model_Resource_Slider_Collection

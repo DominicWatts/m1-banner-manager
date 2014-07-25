@@ -57,6 +57,15 @@ class Xigen_Bannermanager_Block_Adminhtml_Banner_Edit_Tab_Main extends Xigen_Ban
             'disabled' => $isElementDisabled
         ));
         
+        $fieldset->addField($this->_bannerPrefix . 'show_title', 'select', array(
+            'name'     => $this->_bannerPrefix . 'show_title',
+            'label'    => Mage::helper('xigen_bannermanager')->__('Show Title'),
+            'title'    => Mage::helper('xigen_bannermanager')->__('Show Title'),
+            'required' => true,
+            'values'   => Mage::helper('xigen_bannermanager/admin')->getYesNo(),
+            'disabled' => $isElementDisabled
+        ));
+        
         $fieldset->addField($this->_bannerPrefix . 'sort_order', 'text', array(
             'name'     => $this->_bannerPrefix . 'sort_order',
             'label'    => Mage::helper('xigen_bannermanager')->__('Sort Order'),

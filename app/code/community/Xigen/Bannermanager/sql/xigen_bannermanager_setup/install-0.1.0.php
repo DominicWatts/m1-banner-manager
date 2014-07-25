@@ -38,6 +38,11 @@ if ($installer->getConnection()->isTableExists($sliderTableName) != true) {
         ->addColumn($sliderPrefix . 'title', Varien_Db_Ddl_Table::TYPE_VARCHAR, 255, array(
             'nullable' => true,
         ), 'Slider name')
+        ->addColumn($sliderPrefix . 'show_title', Varien_Db_Ddl_Table::TYPE_SMALLINT, 6, array(
+            'unsigned' => true,
+            'nullable' => true,
+            'default'  => 1,
+        ), 'Show Title')              
         ->addColumn($sliderPrefix . 'sort', Varien_Db_Ddl_Table::TYPE_VARCHAR, 255, array(
             'nullable' => true,
         ), 'Sort order')
@@ -76,6 +81,11 @@ if ($installer->getConnection()->isTableExists($bannerTableName) != true) {
         ->addColumn($bannerPrefix . 'title', Varien_Db_Ddl_Table::TYPE_TEXT, 255, array(
             'nullable' => true,
         ), 'Title')
+        ->addColumn($bannerPrefix . 'show_title', Varien_Db_Ddl_Table::TYPE_SMALLINT, 6, array(
+            'unsigned' => true,
+            'nullable' => true,
+            'default'  => '1',
+        ), 'Show Title')
         ->addColumn($bannerPrefix . 'image', Varien_Db_Ddl_Table::TYPE_TEXT, null, array(
             'nullable' => true,
             'default'  => null,

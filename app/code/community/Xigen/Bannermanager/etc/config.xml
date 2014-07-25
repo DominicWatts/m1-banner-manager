@@ -86,5 +86,27 @@
                 </xigen_bannermanager>
             </updates>
         </layout>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <xigen_bannermanager>
+                                            <title>Bannermanager - All</title>
+                                        </xigen_bannermanager>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
     </adminhtml>
 </config>

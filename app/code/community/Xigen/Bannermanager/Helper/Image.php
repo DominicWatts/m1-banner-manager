@@ -85,7 +85,7 @@ class Xigen_Bannermanager_Helper_Image extends Mage_Core_Helper_Abstract
      */
     public function getBaseUrl()
     {
-        return Mage::getBaseUrl('media') . '/' . self::MEDIA_PATH . '/';
+        return Mage::getBaseUrl('media') . self::MEDIA_PATH . '/';
     }
 
     /**

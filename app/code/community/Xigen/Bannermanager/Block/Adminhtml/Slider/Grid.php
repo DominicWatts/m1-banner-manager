@@ -52,6 +52,13 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider_Grid extends Xigen_Bannermanage
             'index'     => $this->_sliderPrefix . 'title',
         ));
         
+        $this->addColumn($this->_sliderPrefix . 'show_title', array(
+            'header'    => Mage::helper('xigen_bannermanager')->__('Show Title'),
+            'width'  => '50px',
+            'frame_callback' => array($this, '_loadYesNo'),
+            'index'     => $this->_sliderPrefix . 'show_title',
+        ));
+        
         $this->addColumn($this->_sliderPrefix . 'created_at', array(
             'header'   => Mage::helper('xigen_bannermanager')->__('Created'),
             'sortable' => true,
