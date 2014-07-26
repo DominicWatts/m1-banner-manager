@@ -1,6 +1,6 @@
 <?php
 /**
- * bannermanager slider template
+ * bannermanager slider wrapper template
  * @author Xigen
  */
 ?>
@@ -15,29 +15,7 @@ $banners    = $result['banners'];
     <?php if ($block['slider_show_title'] == 1): ?>
     <h1><?php echo $block['slider_title']; ?></h1>
     <?php endif; ?>
-          
-    <?php foreach($banners as $banner) : ?>
     
-        <div class="banner">
-            <?php if(!empty($banner['banner_link'])): ?>
-            <a href="<?php echo $banner['banner_link'];?>">
-            <?php endif; ?>    
-            <img class="banner_image img-responsive" src="<?php echo $this->getBaseUrl() . $banner['banner_image'];?>" alt="<?php echo $banner['banner_title']; ?>" title="<?php echo $banner['banner_title']; ?>" />
-            
-            <?php if($banner['banner_show_title'] && !empty($banner['banner_title'])): ?>
-            <h3 class="banner_title"><?php echo $banner['banner_title'];?></h3>
-            <?php endif; ?>
-
-            <?php if(!empty($banner['banner_caption'])): ?>
-            <p class="banner_caption"><?php echo $banner['banner_caption'];?></p>
-            <?php endif; ?>
-                
-            <?php if(!empty($banner['banner_link'])): ?>
-            </a>
-            <?php endif; ?>  
-        </div>
-        <?php break; // Show 1 only ?>
-        
-    <?php endforeach; ?>
+    <?php echo $this->sliderTemplate($block->getSliderStyle(), $result); ?>
     
 <?php endif; ?>

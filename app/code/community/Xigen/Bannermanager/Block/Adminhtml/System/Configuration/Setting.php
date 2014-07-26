@@ -24,7 +24,7 @@ class Xigen_Bannermanager_Block_Adminhtml_System_Configuration_Setting extends M
                 <ul>
                     <li>
                         <code>
-                            $this->getLayout()->createBlock(xigen_bannermanager/slider)->setTemplate(xigen/bannermanager/slider.phtml)->setSliderId(your_slider_id)->toHtml();
+                            $this->getLayout()->createBlock(xigen_bannermanager/slider)->setTemplate(\'xigen/bannermanager/slider.phtml\')->setSliderId(\'your_slider_id\')->toHtml();
                         </code>
                     </li>
                 </ul>

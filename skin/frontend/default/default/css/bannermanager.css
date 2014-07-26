@@ -1,9 +1,6 @@
 .banner {
     position: relative;
 }
-img.banner_image {
-    /*position: absolute;*/
-}
 h3.banner_title {
     background-color: #fdfdfd;
     display: block;
@@ -28,4 +25,9 @@ p.banner_caption {
     text-align: center;
     top: 45%;
     width: 50%;
+}
+img.banner_image {
+    display: block;
+    height: auto;
+    max-width: inherit !important;
 }

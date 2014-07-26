@@ -1,0 +1,37 @@
+<?php
+/**
+ * bannermanager slider template
+ * @author Xigen
+ */
+?>
+<?php
+
+$block_data = $this->getBlockData();
+$blocks     = $block_data['block'];
+$banners    = $block_data['banners'];
+$slider     = $block_data['block']->getData();
+
+?>
+    <?php foreach($banners as $banner) : ?>
+    
+        <div class="banner">
+            <?php if(!empty($banner['banner_link'])): ?>
+            <a href="<?php echo $banner['banner_link'];?>">
+            <?php endif; ?>    
+            <img class="banner_image" src="<?php echo $this->getBaseUrl() . $banner['banner_image'];?>" alt="<?php echo $banner['banner_title']; ?>" title="<?php echo $banner['banner_title']; ?>" />
+            
+            <?php if($banner['banner_show_title'] && !empty($banner['banner_title'])): ?>
+            <h3 class="banner_title"><?php echo $banner['banner_title'];?></h3>
+            <?php endif; ?>
+
+            <?php if(!empty($banner['banner_caption'])): ?>
+            <p class="banner_caption"><?php echo $banner['banner_caption'];?></p>
+            <?php endif; ?>
+                
+            <?php if(!empty($banner['banner_link'])): ?>
+            </a>
+            <?php endif; ?>  
+        </div>
+        <?php break; // as Static Show 1 only ?>
+        
+    <?php endforeach; ?>

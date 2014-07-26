@@ -40,14 +40,35 @@ class Xigen_Bannermanager_Helper_Admin extends Mage_Core_Helper_Abstract {
     }
     
     /**
+     * Style Grid array
+     * 
+     * @return array
+     */
+    public function getStyle() {
+        return array(
+            'static'    => Mage::helper('xigen_bannermanager')->__('Static'),
+        );
+    }
+    
+    /**
+     * Style Grid value
+     * @param $value
+     * @return string
+     */
+    public function getStyleValue($value) {
+        $array = $this->getYesNo();
+        return $array[$value];
+    }
+    
+    /**
      * Random/orderly Grid array
      * 
      * @return array
      */
     public function getRandomOrderly() {
         return array(
-            'random' => Mage::helper('xigen_bannermanager')->__('Random'),
-            'orderly' => Mage::helper('xigen_bannermanager')->__('Orderly'),
+            'random'    => Mage::helper('xigen_bannermanager')->__('Random'),
+            'orderly'   => Mage::helper('xigen_bannermanager')->__('Orderly'),
         );
     }
     

@@ -38,6 +38,9 @@ if ($installer->getConnection()->isTableExists($sliderTableName) != true) {
         ->addColumn($sliderPrefix . 'title', Varien_Db_Ddl_Table::TYPE_VARCHAR, 255, array(
             'nullable' => true,
         ), 'Slider name')
+        ->addColumn($sliderPrefix . 'style', Varien_Db_Ddl_Table::TYPE_VARCHAR, 255, array(
+            'nullable' => true,
+        ), 'Slider Style')
         ->addColumn($sliderPrefix . 'show_title', Varien_Db_Ddl_Table::TYPE_SMALLINT, 6, array(
             'unsigned' => true,
             'nullable' => true,

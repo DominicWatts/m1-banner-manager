@@ -22,7 +22,7 @@
                     <action>adminhtml/bannermanager_banner</action>
                     <sort_order>60</sort_order>
                 </manage_banner>
-                <settings module="bannerslider" translate="title">
+                <settings translate="title" module="xigen_bannermanager">
                     <title>Settings</title>
                     <sort_order>1000</sort_order>
                     <action>adminhtml/system_config/edit/section/xigen_bannermanager</action>

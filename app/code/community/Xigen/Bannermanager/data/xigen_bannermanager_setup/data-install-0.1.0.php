@@ -23,14 +23,17 @@ $sliderRows = array(
     array(
         $sliderPrefix . 'title'         => 'Slider One',
         $sliderPrefix . 'sort'          => 'orderly',
+        $sliderPrefix . 'style'         => 'static',
     ),
     array(
         $sliderPrefix . 'title'         => 'Slider Two',
         $sliderPrefix . 'sort'          => 'random',
+        $sliderPrefix . 'style'         => 'static',
     ),
     array(
         $sliderPrefix . 'title'         => 'Slider Three',
         $sliderPrefix . 'sort'          => 'orderly',
+        $sliderPrefix . 'style'         => 'static',
     ),
 );
 

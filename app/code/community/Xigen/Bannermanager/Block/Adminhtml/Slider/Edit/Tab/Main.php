@@ -66,6 +66,15 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider_Edit_Tab_Main extends Xigen_Ban
             'disabled' => $isElementDisabled
         ));
         
+        $fieldset->addField($this->_sliderPrefix . 'style', 'select', array(
+            'name'     => $this->_sliderPrefix . 'style',
+            'label'    => Mage::helper('xigen_bannermanager')->__('Style'),
+            'title'    => Mage::helper('xigen_bannermanager')->__('Style'),
+            'required' => true,
+            'values'   => Mage::helper('xigen_bannermanager/admin')->getStyle(),
+            'disabled' => $isElementDisabled
+        ));
+        
         $fieldset->addField($this->_sliderPrefix . 'sort', 'select', array(
             'name'     => $this->_sliderPrefix . 'sort',
             'label'    => Mage::helper('xigen_bannermanager')->__('Sort Type'),

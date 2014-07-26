@@ -72,5 +72,18 @@ class Xigen_Bannermanager_Block_Slider extends Xigen_Bannermanager_Block_Abstrac
         }
         return $this->getData('banner_data');
     }
+    
+    public function sliderTemplate($style = false, $result = false) {
+        
+        if($style == false || $result == false) {
+            return false;
+        }
+                
+        return $this->getLayout()
+                ->createBlock('xigen_bannermanager/slider')
+                ->setBlockData($result)
+                ->setTemplate('xigen/bannermanager/' . $style . '.phtml')
+                ->toHtml();
+    }
 
 }
