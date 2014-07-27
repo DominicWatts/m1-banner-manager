@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Default block
+ * Slider block
  *
  * @author Xigen
  */
@@ -26,16 +26,28 @@ class Xigen_Bannermanager_Block_Slider extends Xigen_Bannermanager_Block_Abstrac
     }
 
     
+    /**
+     * Preparing global layout
+     * @return Mage_Core_Block_Abstract
+     */
     public function _prepareLayout() {
         return parent::_prepareLayout();
     }
-    
+
+    /**
+     * Get image base url
+     * @return string
+     */
     public function getBaseUrl() {
         /* @var $imageHelper Xigen_Bannermanager_Helper_Image */
         $imageHelper = Mage::helper('xigen_bannermanager/image');
         return $imageHelper->getBaseUrl();
     }
 
+    /**
+     * Get slider data
+     * @return mixed
+     */
     public function getSliderData() {
                 
         if(!$this->isEnabled()) {
@@ -73,6 +85,12 @@ class Xigen_Bannermanager_Block_Slider extends Xigen_Bannermanager_Block_Abstrac
         return $this->getData('banner_data');
     }
     
+    /**
+     * Load template style block
+     * @param type $style
+     * @param type $result
+     * @return mixed
+     */
     public function sliderTemplate($style = false, $result = false) {
         
         if($style == false || $result == false) {

@@ -29,5 +29,6 @@ p.banner_caption {
 img.banner_image {
     display: block;
     height: auto;
-    max-width: inherit !important;
+    max-width: 100% !important;
+    /*max-width: inherit !important;*/
 }

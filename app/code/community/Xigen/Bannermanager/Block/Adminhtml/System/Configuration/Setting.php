@@ -42,7 +42,7 @@ class Xigen_Bannermanager_Block_Adminhtml_System_Configuration_Setting extends M
                 <ul>
                     <li>
                         <code>
-                            {{block type="xigen_bannermanager/slider" name="xigen.bannermanager.slider" template="xigen/bannermanager/slider.phtml" bannermanager_id="your_slider_id"}}
+                            {{block type="xigen_bannermanager/slider" name="xigen.bannermanager.slider" template="xigen/bannermanager/slider.phtml" slider_id="your_slider_id"}}
                         </code>
                     </li>
                 </ul>
@@ -61,7 +61,7 @@ class Xigen_Bannermanager_Block_Adminhtml_System_Configuration_Setting extends M
                     <li>
                         <code>
                          &lt;block type="xigen_bannermanager/slider" name="xigen.bannermanager.slider" template="xigen/bannermanager/slider.phtml"&gt;<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;action method="setSliderId"&gt;&lt;bannermanager_id&gt;your_slider_id&lt;/bannermanager_id&gt;&lt;/action&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;action method="setSliderId"&gt;&lt;slider_id&gt;your_slider_id&lt;/slider_id&gt;&lt;/action&gt;<br>
                         &lt;/block&gt;
                         </code>	
                     </li>
