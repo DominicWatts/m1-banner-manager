@@ -15,7 +15,7 @@ class Xigen_Bannermanager_Block_Adminhtml_System_Configuration_Setting extends M
                     <li><strong>'.Mage::helper('xigen_bannermanager')->__('Template file').'</strong></li>	
                     <li>
                         <code>
-                            $this->getLayout()->createBlock(xigen_bannermanager/slider)->setTemplate(\'xigen/bannermanager/slider.phtml\')->setSliderId(\'your_slider_id\')->toHtml();
+                            &lt;?php echo $this->getLayout()->createBlock(\'xigen_bannermanager/slider\')->setTemplate(\'xigen/bannermanager/slider.phtml\')->setSliderId(\'your_slider_id\')->toHtml(); ?&gt;
                         </code>
                     </li>
                 </ul>
