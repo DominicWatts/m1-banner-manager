@@ -18,7 +18,7 @@ $slider     = $block_data['block']->getData();
         <?php if($banner['banner_youtube']): ?>
 
             <iframe width="200" height="250" src="https://www.youtube.com/embed/<?php echo $banner['banner_youtube']; ?>" frameborder="0" allowfullscreen></iframe>
-
+            
         <?php else: ?>
 
             <div class="banner">
@@ -41,5 +41,7 @@ $slider     = $block_data['block']->getData();
             </div>
 
         <?php endif; ?>
+
+        <?php break; // as Static Show 1 only ?>
         
     <?php endforeach; ?>

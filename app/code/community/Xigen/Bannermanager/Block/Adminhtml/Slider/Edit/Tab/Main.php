@@ -48,7 +48,7 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider_Edit_Tab_Main extends Xigen_Ban
             'values'   => Mage::helper('xigen_bannermanager/admin')->getYesNo(),
             'disabled' => $isElementDisabled
         ));
-         
+        
         $fieldset->addField($this->_sliderPrefix . 'title', 'text', array(
             'name'     => $this->_sliderPrefix . 'title',
             'label'    => Mage::helper('xigen_bannermanager')->__('Slider Title'),
@@ -72,6 +72,39 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider_Edit_Tab_Main extends Xigen_Ban
             'title'    => Mage::helper('xigen_bannermanager')->__('Style'),
             'required' => true,
             'values'   => Mage::helper('xigen_bannermanager/admin')->getStyle(),
+            'disabled' => $isElementDisabled
+        ));
+        
+        if (!Mage::app()->isSingleStoreMode()) {
+            $fieldset->addField('store_id', 'multiselect', array(
+                'name' => 'stores[]',
+                'label' => Mage::helper('xigen_bannermanager')->__('Store View'),
+                'title' => Mage::helper('xigen_bannermanager')->__('Store View'),
+                'required' => true,
+                'values' => Mage::getSingleton('adminhtml/system_store')->getStoreValuesForForm(false, true),
+            ));
+        } else {
+            $fieldset->addField('store_id', 'hidden', array(
+                'name' => 'stores[]',
+                'value' => Mage::app()->getStore(true)->getId(),
+            ));
+        }
+        
+        $fieldset->addField($this->_sliderPrefix . 'position', 'select', array(
+            'name'     => $this->_sliderPrefix . 'position',
+            'label'    => Mage::helper('xigen_bannermanager')->__('Position'),
+            'title'    => Mage::helper('xigen_bannermanager')->__('Position'),
+            'required' => true,
+            'values'   => Mage::helper('xigen_bannermanager/admin')->getPostion(),
+            'disabled' => $isElementDisabled
+        ));
+        
+        $fieldset->addField($this->_sliderPrefix . 'page', 'select', array(
+            'name'     => $this->_sliderPrefix . 'page',
+            'label'    => Mage::helper('xigen_bannermanager')->__('Page'),
+            'title'    => Mage::helper('xigen_bannermanager')->__('Page'),
+            'required' => false,
+            'values'   => Mage::helper('xigen_bannermanager/admin')->getPages(),
             'disabled' => $isElementDisabled
         ));
         

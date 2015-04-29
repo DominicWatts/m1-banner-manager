@@ -52,7 +52,17 @@ class Xigen_Bannermanager_Block_Adminhtml_Banner_Grid extends Xigen_Bannermanage
             'index'     => $this->_bannerPrefix . 'title',
         ));
         
-         $this->addColumn($this->_bannerPrefix . 'show_title', array(
+        $this->addColumn($this->_bannerPrefix . 'image', array(
+            'header'    => Mage::helper('xigen_bannermanager')->__('Banner Image'),
+            'index'     => $this->_bannerPrefix . 'image',
+        ));
+         
+        $this->addColumn($this->_bannerPrefix . 'youtube', array(
+            'header'    => Mage::helper('xigen_bannermanager')->__('Banner Youtube'),
+            'index'     => $this->_bannerPrefix . 'youtube',
+        ));
+        
+        $this->addColumn($this->_bannerPrefix . 'show_title', array(
             'header'    => Mage::helper('xigen_bannermanager')->__('Show Title'),
             'width'  => '50px',
             'frame_callback' => array($this, '_loadYesNo'),

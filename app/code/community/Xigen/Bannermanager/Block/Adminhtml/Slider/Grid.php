@@ -29,6 +29,14 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider_Grid extends Xigen_Bannermanage
     {
         $collection = Mage::getModel('xigen_bannermanager/slider')->getResourceCollection()
                 ->addFieldToFilter($this->_sliderPrefix . 'is_trash', $this->_trashFilter);
+        
+        foreach ($collection as $view) {
+            if ($view->getStoreId() && $view->getStoreId() != 0) {
+                $view->setStoreId(explode(',', $view->getStoreId()));
+            } else {
+                $view->setStoreId(array('0'));
+            }
+        }
 
         $this->setCollection($collection);
         return parent::_prepareCollection();
@@ -46,6 +54,18 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider_Grid extends Xigen_Bannermanage
             'width'     => '50px',
             'index'     => $this->_sliderPrefix . 'id',
         ));
+        
+        if (!Mage::app()->isSingleStoreMode()) {
+            $this->addColumn('store_id', array(
+                'header' => Mage::helper('xigen_bannermanager')->__('Store View'),
+                'index' => 'store_id',
+                'type' => 'store',
+                'store_all' => true,
+                'store_view' => true,
+                'sortable' => true,
+                'filter_condition_callback' => array($this, '_filterStoreCondition'),
+            ));
+        }
 
         $this->addColumn($this->_sliderPrefix . 'title', array(
             'header'    => Mage::helper('xigen_bannermanager')->__('Title'),
@@ -159,6 +179,19 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider_Grid extends Xigen_Bannermanage
         }
             
         return $this;
+    }
+    
+    /**
+     * Filter store condition
+     * @param Xigen_Bannermanager_Block_Adminhtml_Slider_Grid $collection
+     * @param string $column
+     * @return mixed
+     */
+    protected function _filterStoreCondition($collection, $column) {
+        if (!$value = $column->getFilter()->getValue()) {
+            return;
+        }
+        $this->getCollection()->addStoreFilter($value);
     }
     
 }

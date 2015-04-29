@@ -45,7 +45,11 @@ if ($installer->getConnection()->isTableExists($sliderTableName) != true) {
             'unsigned' => true,
             'nullable' => true,
             'default'  => 1,
-        ), 'Show Title')              
+        ), 'Show Title') 
+        ->addColumn('store_id', Varien_Db_Ddl_Table::TYPE_VARCHAR, 255, array(
+            'default'  => 0,
+            'nullable' => false,
+        ), 'Sort order')
         ->addColumn($sliderPrefix . 'sort', Varien_Db_Ddl_Table::TYPE_VARCHAR, 255, array(
             'nullable' => true,
         ), 'Sort order')

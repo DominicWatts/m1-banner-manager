@@ -9,7 +9,7 @@
 <config>
     <modules>
         <Xigen_Bannermanager>
-            <version>0.1.0</version>
+            <version>0.3.0</version>
         </Xigen_Bannermanager>
     </modules>
     <global>
@@ -109,4 +109,12 @@
             </resources>
         </acl>
     </adminhtml>
+    <default>
+        <xigen_bannermanager>
+            <bannermanager>
+                <enabled>1</enabled>
+                <usestyles>0</usestyles>
+            </bannermanager>
+        </xigen_bannermanager>
+    </default>  
 </config>

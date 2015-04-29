@@ -51,6 +51,16 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider_Edit_Tab_Banner extends Xigen_B
             'index'     => $this->_bannerPrefix . 'title',
         ));
         
+        $this->addColumn($this->_bannerPrefix . 'image', array(
+            'header'    => Mage::helper('xigen_bannermanager')->__('Banner Image'),
+            'index'     => $this->_bannerPrefix . 'image',
+        ));
+        
+        $this->addColumn($this->_bannerPrefix . 'youtube', array(
+            'header'    => Mage::helper('xigen_bannermanager')->__('Banner Youtube'),
+            'index'     => $this->_bannerPrefix . 'youtube',
+        ));
+        
         $this->addColumn($this->_bannerPrefix . 'created_at', array(
             'header'   => Mage::helper('xigen_bannermanager')->__('Created'),
             'sortable' => true,

@@ -57,6 +57,14 @@ class Xigen_Bannermanager_Block_Adminhtml_Banner_Edit_Tab_Main extends Xigen_Ban
             'disabled' => $isElementDisabled
         ));
         
+        $fieldset->addField($this->_bannerPrefix . 'youtube', 'text', array(
+            'name'     => $this->_bannerPrefix . 'youtube',
+            'label'    => Mage::helper('xigen_bannermanager')->__('Youtube'),
+            'title'    => Mage::helper('xigen_bannermanager')->__('Youtube'),
+            'required' => false,
+            'disabled' => $isElementDisabled
+        ));
+        
         $fieldset->addField($this->_bannerPrefix . 'show_title', 'select', array(
             'name'     => $this->_bannerPrefix . 'show_title',
             'label'    => Mage::helper('xigen_bannermanager')->__('Show Title'),

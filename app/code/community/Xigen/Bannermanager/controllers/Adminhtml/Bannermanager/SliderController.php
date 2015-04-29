@@ -108,6 +108,16 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_SliderController extends Xigen
         // check if data sent
         $data = $this->getRequest()->getPost();
         if ($data) {
+            
+            if (isset($data['stores'])) {
+                if (in_array('0', $data['stores'])) {
+                    $data['store_id'] = '0';
+                } else {
+                    $data['store_id'] = join(",", $data['stores']);
+                }
+                unset($data['stores']);
+            }
+            
             $data = $this->_filterSliderData($data);
             // init model and set data
             /* @var $model Xigen_Bannermanager_Model_Item */
