@@ -2,7 +2,6 @@
 
 /**
  * Slider block
- *
  * @author Xigen
  */
 class Xigen_Bannermanager_Block_Slider extends Xigen_Bannermanager_Block_Abstract {
@@ -26,8 +25,15 @@ class Xigen_Bannermanager_Block_Slider extends Xigen_Bannermanager_Block_Abstrac
     }
 
     /**
-     *
-     * Get slider data
+     * Get slider data, this block logic is called manually using details in the help text
+     * Template file 
+     * <?php echo $this->getLayout()->createBlock('xigen_bannermanager/slider')->setTemplate('xigen/bannermanager/slider.phtml')->setSliderId('your_slider_id')->toHtml(); ?>
+     * CMS Page 
+     * {{block type="xigen_bannermanager/slider" name="xigen.bannermanager.slider" template="xigen/bannermanager/slider.phtml" slider_id="your_slider_id"}}
+     * Layout XML  
+     * <block type="xigen_bannermanager/slider" name="xigen.bannermanager.slider" template="xigen/bannermanager/slider.phtml">
+     *  <action method="setSliderId"><slider_id>your_slider_id</slider_id></action>
+     * </block>
      * @return mixed
      */
     public function getSliderData() {

@@ -425,5 +425,85 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_SliderController extends Xigen
         $this->getLayout()->getBlock('banner.grid');
         $this->renderLayout();
     }
+    
+    /**
+     * Used in categories selector
+     */
+    public function chooserMainCategoriesAction() {
+        
+        $request = $this->getRequest();
+        $ids = $request->getParam('selected', array());
+
+        if (is_array($ids)) {
+            foreach ($ids as $key => &$id) {
+                $id = (int) $id;
+                if ($id <= 0) {
+                    unset($ids[$key]);
+                }
+            }
+            $ids = array_unique($ids);
+        } else {
+            $ids = array();
+        }
+        
+        $block = $this->getLayout()
+            ->createBlock(
+                'xigen_bannermanager/adminhtml_slider_edit_tab_categories', 
+                'content_category', 
+                array(
+                    'js_form_object' => $request->getParam('form')
+                )
+            )
+            ->setCategoryIds($ids);
+       
+        if ($block) {
+            $this->getResponse()->setBody($block->toHtml());
+        }
+        
+    }
+
+    /**
+     * Used in categories selector
+     * @return mixed
+     */
+    public function categoriesJsonAction() {
+        
+        if ($categoryId = (int) $this->getRequest()->getPost('id')) {
+            $this->getRequest()->setParam('id', $categoryId);
+
+            if (!$category = $this->_initCategory()) {
+                return;
+            }
+            $this->getResponse()->setBody(
+                $this->getLayout()
+                    ->createBlock('adminhtml/catalog_category_tree')
+                    ->getTreeJson($category)
+            );
+        }
+    }
+    
+    protected function _initCategory() {
+        $categoryId = (int) $this->getRequest()->getParam('id', false);
+        $storeId = (int) $this->getRequest()->getParam('store');
+
+        $category = Mage::getModel('catalog/category');
+        $category->setStoreId($storeId);
+
+        if ($categoryId) {
+            $category->load($categoryId);
+            if ($storeId) {
+                $rootId = Mage::app()->getStore($storeId)->getRootCategoryId();
+                if (!in_array($rootId, $category->getPathIds())) {
+                    $this->_redirect('*/*/', array('_current' => true, 'id' => null));
+                    return false;
+                }
+            }
+        }
+
+        Mage::register('category', $category);
+        Mage::register('current_category', $category);
+
+        return $category;
+    }
 
 }

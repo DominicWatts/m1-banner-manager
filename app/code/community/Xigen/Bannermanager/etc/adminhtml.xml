@@ -13,7 +13,7 @@
             <sort_order>65</sort_order>
             <children>
                 <manage_slider translate="title" module="xigen_bannermanager">
-                    <title>Manage Sliders</title>
+                    <title>Manage Groups</title>
                     <action>adminhtml/bannermanager_slider</action>
                     <sort_order>50</sort_order>
                 </manage_slider>

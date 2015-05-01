@@ -3,7 +3,7 @@
 /**
  * Slider Banner admin tab grid
  *
- * @Slider Xigen
+ * @author Xigen
  */
 class Xigen_Bannermanager_Block_Adminhtml_Slider_Edit_Tab_Banner extends Xigen_Bannermanager_Block_Adminhtml_Grid {
 

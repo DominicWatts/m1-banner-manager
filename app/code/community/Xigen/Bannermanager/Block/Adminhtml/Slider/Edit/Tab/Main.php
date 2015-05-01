@@ -108,6 +108,55 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider_Edit_Tab_Main extends Xigen_Ban
             'disabled' => $isElementDisabled
         ));
         
+        $categoryIds = implode(",", Mage::getResourceModel('catalog/category_collection')
+             ->addFieldToFilter('level', array('gt' => 0))
+             ->getAllIds());
+        
+        $fieldset->addField('category_id', 'text', array(
+            'label'     => Mage::helper('xigen_bannermanager')->__('Categories'),
+            'name'      => 'category_id',
+            'disabled'  => $isElementDisabled,
+            'after_element_html' => 
+                '<a id="category_link" href="javascript:void(0)" onclick="toggleMainCategories()"><img src="' . $this->getSkinUrl('images/rule_chooser_trigger.gif') . '" alt="" class="v-middle rule-chooser-trigger" title="Select Categories"></a>
+                <div  id="categories_check">
+                    <a href="javascript:toggleMainCategories(\'checkall\')">Check All</a> / <a href="javascript:toggleMainCategories(\'uncheckall\')">Uncheck All</a>
+                </div>
+                <div id="main_categories_select" style="display:none"></div>
+                <script type="text/javascript">
+                function toggleMainCategories(check){
+                    var categories_select = $("main_categories_select");
+                    if($("main_categories_select").style.display == "none" || (check == "checkall") || (check == "uncheckall")){
+                        $("categories_check").style.display ="";
+                        var url = "' . $this->getUrl('bannermanager/adminhtml_bannermanager_slider/chooserMainCategories') . '";
+                        if(check == "checkall"){
+                            $("slider_main_category_id").value = "' . $categoryIds . '";
+                        }else if(check == "uncheckall"){
+                            $("slider_main_category_id").value = "";
+                        }
+                        var params = $("slider_main_category_id").value.split(",");
+                        var parameters = {"form_key": FORM_KEY,"selected[]":params };
+                        var request = new Ajax.Request(url,
+                            {
+                                evalScripts: true,
+                                parameters: parameters,
+                                onComplete:function(transport){
+                                    $("main_categories_select").update(transport.responseText);
+                                    $("main_categories_select").style.display = "block"; 
+                                }
+                            });
+                        if(categories_select.style.display == "none"){
+                            categories_select.style.display = "";
+                        }else{
+                            categories_select.style.display = "none";
+                        } 
+                    }else{
+                        categories_select.style.display = "none";
+                        $("categories_check").style.display ="none";
+                    }
+                };
+                </script>'
+        ));
+        
         $fieldset->addField($this->_sliderPrefix . 'sort', 'select', array(
             'name'     => $this->_sliderPrefix . 'sort',
             'label'    => Mage::helper('xigen_bannermanager')->__('Sort Type'),
