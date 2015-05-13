@@ -87,9 +87,9 @@ class Xigen_Bannermanager_Block_Slider extends Xigen_Bannermanager_Block_Abstrac
     }
     
     /**
-     * Load template style block
-     * @param type $style
-     * @param type $result
+     * Load template style block, used in phtml template files
+     * @param string $style
+     * @param mixed $result
      * @return mixed
      */
     public function sliderTemplate($style = false, $result = false) {
