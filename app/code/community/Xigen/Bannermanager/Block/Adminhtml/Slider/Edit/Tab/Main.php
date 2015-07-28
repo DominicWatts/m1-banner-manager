@@ -127,7 +127,7 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider_Edit_Tab_Main extends Xigen_Ban
                     var categories_select = $("main_categories_select");
                     if($("main_categories_select").style.display == "none" || (check == "checkall") || (check == "uncheckall")){
                         $("categories_check").style.display ="";
-                        var url = "' . $this->getUrl('bannermanager/adminhtml_bannermanager_slider/chooserMainCategories') . '";
+                        var url = "' . $this->getUrl('adminhtml/bannermanager_slider/chooserMainCategories') . '";
                         if(check == "checkall"){
                             $("slider_main_category_id").value = "' . $categoryIds . '";
                         }else if(check == "uncheckall"){
