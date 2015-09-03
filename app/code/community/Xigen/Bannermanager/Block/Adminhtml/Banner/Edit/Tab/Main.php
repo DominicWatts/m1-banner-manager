@@ -81,7 +81,7 @@ class Xigen_Bannermanager_Block_Adminhtml_Banner_Edit_Tab_Main extends Xigen_Ban
             'disabled' => $isElementDisabled
         ));
         
-        $validationErrorMessage = addslashes(Mage::helper('xigen_bannermanager')->__("Please use only letters (a-z or A-Z), numbers (0-9) or symbols '-', '_', '\' and '/' in this field"));
+        $validationErrorMessage = addslashes(Mage::helper('xigen_bannermanager')->__("Please use only letters (a-z or A-Z), numbers (0-9) or symbols '-', '_', '\', '/', '#' and ':' in this field"));
 
         $fieldset->addField($this->_bannerPrefix . 'link', 'text', array(
             'name'               => $this->_bannerPrefix . 'link',            
@@ -93,9 +93,8 @@ class Xigen_Bannermanager_Block_Adminhtml_Banner_Edit_Tab_Main extends Xigen_Ban
                                        Validation.add(
                                            'xigen-bannermanager-validate-link',
                                            '" . $validationErrorMessage . "',
-                                           function(v, elm) {
-                                               var regex = new RegExp(/^[\/\\a-zA-Z0-9_-]+$/);
-                                               return v.match(regex);
+                                           function (v) {
+                                               return Validation.get('IsEmpty').test(v) || (/^[\/\a-zA-Z0-9_\-#:]+$/).test(v);
                                            }
                                        );
                                        </script>",
@@ -125,7 +124,7 @@ class Xigen_Bannermanager_Block_Adminhtml_Banner_Edit_Tab_Main extends Xigen_Ban
             'label'    => Mage::helper('xigen_bannermanager')->__('Banner Caption'),
             'title'    => Mage::helper('xigen_bannermanager')->__('Banner Caption'),
             'style'    => 'height:60px;',
-            'required' => true,
+            'required' => false,
             'disabled' => $isElementDisabled,
             'config'   => $wysiwygConfig
         ));
