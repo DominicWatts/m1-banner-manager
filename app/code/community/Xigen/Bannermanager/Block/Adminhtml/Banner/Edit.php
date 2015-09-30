@@ -67,6 +67,17 @@ class Xigen_Bannermanager_Block_Adminhtml_Banner_Edit extends Mage_Adminhtml_Blo
             }
         ";
     }
+    
+    /**
+     * Load Wysiwyg on demand and Prepare layout
+     */
+    protected function _prepareLayout()
+    {
+        parent::_prepareLayout();
+        if (Mage::getSingleton('cms/wysiwyg_config')->isEnabled()) {
+            $this->getLayout()->getBlock('head')->setCanLoadTinyMce(true);
+        }
+    }
 
     /**
      * Retrieve text for header element depending on loaded page
