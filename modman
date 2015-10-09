@@ -1,0 +1,16 @@
+/app/code/community/Xigen/Bannermanager /app/code/community/Xigen/Bannermanager
+/app/design/adminhtml/default/default/layout/xigen/bannermanager.xml /app/design/adminhtml/default/default/layout/xigen/bannermanager.xml
+/app/design/adminhtml/default/default/template/xigen/bannermanager/categories.phtml /app/design/adminhtml/default/default/template/xigen/bannermanager/categories.phtml
+/app/design/frontend/default/default/layout/xigen/bannermanager.xml /app/design/frontend/default/default/layout/xigen/bannermanager.xml
+/app/design/frontend/default/default/template/xigen/bannermanager/bootstrap.phtml /app/design/frontend/default/default/template/xigen/bannermanager/bootstrap.phtml
+/app/design/frontend/default/default/template/xigen/bannermanager/single-static.phtml /app/design/frontend/default/default/template/xigen/bannermanager/single-static.phtml
+/app/design/frontend/default/default/template/xigen/bannermanager/slider.phtml /app/design/frontend/default/default/template/xigen/bannermanager/slider.phtml
+/app/design/frontend/default/default/template/xigen/bannermanager/static.phtml /app/design/frontend/default/default/template/xigen/bannermanager/static.phtml
+/app/etc/modules/Xigen_Bannermanager.xml /app/etc/modules/Xigen_Bannermanager.xml
+/media/banner/banner-1.jpg /media/banner/banner-1.jpg
+/media/banner/banner-2.jpg /media/banner/banner-2.jpg
+/media/banner/banner-3.jpg /media/banner/banner-3.jpg
+/media/banner/banner-4.jpg /media/banner/banner-4.jpg
+/media/banner/banner-5.jpg /media/banner/banner-5.jpg
+/media/banner/banner-6.jpg /media/banner/banner-6.jpg
+/skin/frontend/default/default/css/bannermanager.css /skin/frontend/default/default/css/bannermanager.css

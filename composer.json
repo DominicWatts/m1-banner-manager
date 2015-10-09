@@ -1,0 +1,11 @@
+{
+    "name": "DominicWatts/magento-banner-manager",
+    "version": "0.4.0",
+    "license": "OSL-3.0",
+    "type": "magento-module",
+    "description": "Xigen Banner Manager module",
+    "homepage": "http://www.xigen.co.uk",
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

@@ -48,6 +48,7 @@ class Xigen_Bannermanager_Helper_Admin extends Mage_Core_Helper_Abstract {
         return array(
             'static'        => Mage::helper('xigen_bannermanager')->__('Static'),
             'single-static' => Mage::helper('xigen_bannermanager')->__('Single Static'),
+            'bootstrap'     => Mage::helper('xigen_bannermanager')->__('Bootstrap'),
         );
     }
     
