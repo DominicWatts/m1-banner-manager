@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Xigen
+ */
+-->
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+
+            <!-- Add Custom asset -->
+            <action method="addItem" ifconfig="xigen_bannermanager/bannermanager/usestyles">
+                <type>skin_css</type>
+                <name>css/bannermanager.css</name>
+                <params>name="after"</params>
+            </action>            
+
+        </reference>
+    </default>
+</layout>

@@ -1,0 +1,21 @@
+<?php
+/**
+ * bannermanager slider wrapper template
+ * @author Xigen
+ */
+?>
+<?php
+$result     = $this->getSliderData();
+// Zend_debug::dump($result);
+$block      = $result['block'];
+$banners    = $result['banners'];
+?>
+<?php if (count($banners) && count($block->getData())): ?>
+   
+    <?php if ($block['slider_show_title'] == 1): ?>
+    <h1><?php echo $block['slider_title']; ?></h1>
+    <?php endif; ?>
+    
+    <?php echo $this->sliderTemplate($block->getSliderStyle(), $result); ?>
+    
+<?php endif; ?>
