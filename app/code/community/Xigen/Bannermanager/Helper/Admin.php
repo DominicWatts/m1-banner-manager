@@ -16,6 +16,26 @@ class Xigen_Bannermanager_Helper_Admin extends Mage_Core_Helper_Abstract {
     public function isActionAllowed($action) {
         return Mage::getSingleton('admin/session')->isAllowed('banner/manage/' . $action);
     }
+    
+    /**
+     * Check permission for passed action
+     *
+     * @param string $action
+     * @return bool
+     */
+    public function isActionAllowedBanner($action) {
+        return Mage::getSingleton('admin/session')->isAllowed('bannermanager/manage_banner/' . $action);
+    }
+
+    /**
+     * Check permission for passed action
+     *
+     * @param string $action
+     * @return bool
+     */
+    public function isActionAllowedSlider($action) {
+        return Mage::getSingleton('admin/session')->isAllowed('slider/manage_slider/' . $action);
+    }
 
     /**
      * Yes/No Grid array

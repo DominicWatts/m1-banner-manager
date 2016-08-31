@@ -23,7 +23,7 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider extends Mage_Adminhtml_Block_Wi
             $this->_headerText = Mage::helper('xigen_bannermanager')->__('Sliders');
         }
         
-        if (Mage::helper('xigen_bannermanager/admin')->isActionAllowed('save')) {
+        if (Mage::helper('xigen_bannermanager/admin')->isActionAllowedSlider('save')) {
             $this->_updateButton('add', 'label', Mage::helper('xigen_bannermanager')->__('Add New Slider'));
         } else {
             $this->_removeButton('add');

@@ -19,7 +19,7 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider_Edit_Tab_Main extends Xigen_Ban
         /**
          * Checking if user have permissions to save information
          */
-        if (Mage::helper('xigen_bannermanager/admin')->isActionAllowed('save')) {
+        if (Mage::helper('xigen_bannermanager/admin')->isActionAllowedSlider('save')) {
             $isElementDisabled = false;
         } else {
             $isElementDisabled = true;

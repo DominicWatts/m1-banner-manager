@@ -376,13 +376,13 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_SliderController extends Xigen
         switch ($this->getRequest()->getActionName()) {
             case 'new':
             case 'save':
-                return Mage::getSingleton('admin/session')->isAllowed('cms/bannermanager/slider/save');
+                return Mage::getSingleton('admin/session')->isAllowed('slider/manage_slider/save');
                 break;
             case 'delete':
-                return Mage::getSingleton('admin/session')->isAllowed('cms/bannermanager/slider/delete');
+                return Mage::getSingleton('admin/session')->isAllowed('slider/manage_slider/delete');
                 break;
             default:
-                return Mage::getSingleton('admin/session')->isAllowed('cms/bannermanager/slider');
+                return Mage::getSingleton('admin/session')->isAllowed('slider/manage_slider');
                 break;
         }
     }

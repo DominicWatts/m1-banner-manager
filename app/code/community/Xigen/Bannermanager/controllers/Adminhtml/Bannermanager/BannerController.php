@@ -388,16 +388,18 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_BannerController extends Xigen
      */
     protected function _isAllowed()
     {
+
+
         switch ($this->getRequest()->getActionName()) {
             case 'new':
             case 'save':
-                return Mage::getSingleton('admin/session')->isAllowed('cms/bannermanager/banner/save');
+                return Mage::getSingleton('admin/session')->isAllowed('bannermanager/manage_banner/save');
                 break;
             case 'delete':
-                return Mage::getSingleton('admin/session')->isAllowed('cms/bannermanager/banner/delete');
+                return Mage::getSingleton('admin/session')->isAllowed('bannermanager/manage_banner/delete');
                 break;
             default:
-                return Mage::getSingleton('admin/session')->isAllowed('cms/bannermanager/banner');
+                return Mage::getSingleton('admin/session')->isAllowed('bannermanager/manage_banner');
                 break;
         }
     }

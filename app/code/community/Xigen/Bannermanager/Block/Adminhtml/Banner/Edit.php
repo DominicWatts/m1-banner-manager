@@ -30,7 +30,7 @@ class Xigen_Bannermanager_Block_Adminhtml_Banner_Edit extends Mage_Adminhtml_Blo
             
         } else {
         
-            if (Mage::helper('xigen_bannermanager/admin')->isActionAllowed('save')) {
+            if (Mage::helper('xigen_bannermanager/admin')->isActionAllowedBanner('save')) {
                 $this->_updateButton('save', 'label', Mage::helper('xigen_bannermanager')->__('Save Banner'));
                 $this->_addButton('saveandcontinue', array(
                     'label'   => Mage::helper('adminhtml')->__('Save and Continue Edit'),
@@ -41,7 +41,7 @@ class Xigen_Bannermanager_Block_Adminhtml_Banner_Edit extends Mage_Adminhtml_Blo
                 $this->_removeButton('save');
             }
 
-            if (Mage::helper('xigen_bannermanager/admin')->isActionAllowed('delete')) {
+            if (Mage::helper('xigen_bannermanager/admin')->isActionAllowedBanner('delete')) {
                  $this->_addButton('trash', array(
                     'label'     => Mage::helper('xigen_bannermanager')->__('Trash'),
                     'onclick'   => "setLocation('{$this->getUrl('*/*/trash', array('id' => $bannerId))}')",
@@ -67,7 +67,7 @@ class Xigen_Bannermanager_Block_Adminhtml_Banner_Edit extends Mage_Adminhtml_Blo
             }
         ";
     }
-    
+
     /**
      * Load Wysiwyg on demand and Prepare layout
      */

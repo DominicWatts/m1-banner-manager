@@ -8,74 +8,110 @@
 -->
 <config>
     <menu>
-        <cms>
+        <bannermanager translate="title" module="xigen_bannermanager">
+            <title>Banner Manager</title>
+            <sort_order>65</sort_order>
             <children>
-                <bannermanager translate="title" module="xigen_bannermanager">
-                    <title>Banner Manager</title>
-                    <sort_order>65</sort_order>
-                    <children>
-                        <slider translate="title" module="xigen_bannermanager">
-                            <title>Manage Groups</title>
-                            <action>adminhtml/bannermanager_slider</action>
-                            <sort_order>50</sort_order>
-                        </slider>
-                        <banner translate="title" module="xigen_bannermanager">
-                            <title>Manage Banners</title>
-                            <action>adminhtml/bannermanager_banner</action>
-                            <sort_order>60</sort_order>
-                        </banner>
-                        <settings translate="title" module="xigen_bannermanager">
-                            <title>Settings</title>
-                            <sort_order>1000</sort_order>
-                            <action>adminhtml/system_config/edit/section/xigen_bannermanager</action>
-                        </settings>
-                    </children>
-                </bannermanager>
+                <manage_slider translate="title" module="xigen_bannermanager">
+                    <title>Manage Groups</title>
+                    <action>adminhtml/bannermanager_slider</action>
+                    <sort_order>50</sort_order>
+                </manage_slider>
+                <manage_banner translate="title" module="xigen_bannermanager">
+                    <title>Manage Banners</title>
+                    <action>adminhtml/bannermanager_banner</action>
+                    <sort_order>60</sort_order>
+                </manage_banner>
+                <settings translate="title" module="xigen_bannermanager">
+                    <title>Settings</title>
+                    <sort_order>1000</sort_order>
+                    <action>adminhtml/system_config/edit/section/xigen_bannermanager</action>
+                </settings>
             </children>
-        </cms>
+        </bannermanager>
     </menu>
     <acl>
         <resources>
             <admin>
                 <children>
-                    <cms>
+                    <slider translate="title" module="xigen_bannermanager">
+                        <title>Slider</title>
+                        <sort_order>65</sort_order>
                         <children>
-                            <bannermanager translate="title" module="xigen_bannermanager">
-                                <title>Banner Manager</title>
-                                <sort_order>65</sort_order>
+                            <manage_slider translate="title">
+                                <title>Manage Slider</title>
+                                <sort_order>0</sort_order>
                                 <children>
-                                    <slider translate="title">
-                                        <title>Manage Slider</title>
+                                    <save translate="title">
+                                        <title>Save Slider</title>
                                         <sort_order>0</sort_order>
-                                        <children>
-                                            <save translate="title">
-                                                <title>Save Slider</title>
-                                                <sort_order>0</sort_order>
-                                            </save>
-                                            <delete translate="title">
-                                                <title>Delete Slider</title>
-                                                <sort_order>10</sort_order>
-                                            </delete>
-                                        </children>
+                                    </save>
+                                    <delete translate="title">
+                                        <title>Delete Slider</title>
+                                        <sort_order>10</sort_order>
+                                    </delete>
+                                </children>
+                            </manage_slider>
+                        </children>
+                    </slider>
+                    <bannermanager translate="title" module="xigen_bannermanager">
+                        <title>Banner</title>
+                        <sort_order>66</sort_order>
+                        <children>
+                            <manage_banner translate="title">
+                                <title>Manage Banner</title>
+                                <sort_order>0</sort_order>
+                                <children>
+                                    <save translate="title">
+                                        <title>Save Banner</title>
+                                        <sort_order>0</sort_order>
+                                    </save>
+                                    <delete translate="title">
+                                        <title>Delete Banner</title>
+                                        <sort_order>10</sort_order>
+                                    </delete>
+                                </children>
+                            </manage_banner>
+                            <manage_slider translate="title">
+                                <title>Manage Groups</title>
+                                <sort_order>50</sort_order>
+                            </manage_slider>
+                        </children>
+                    </bannermanager>
+                    <bannermanager translate="title" module="xigen_bannermanager">
+                        <title>Banner</title>
+                        <sort_order>66</sort_order>
+                        <children>
+                            <manage_banner translate="title">
+                                <title>Manage Banner</title>
+                                <sort_order>0</sort_order>
+                                <children>
+                                    <save translate="title">
+                                        <title>Save Banner</title>
+                                        <sort_order>0</sort_order>
+                                    </save>
+                                    <delete translate="title">
+                                        <title>Delete Banner</title>
+                                        <sort_order>10</sort_order>
+                                    </delete>
+                                </children>
+                            </manage_banner>
+                        </children>
+                    </bannermanager>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <slider translate="title" module="xigen_bannermanager">
+                                        <title>Slider Management</title>
                                     </slider>
-                                    <banner translate="title">
-                                        <title>Manage Banner</title>
-                                        <sort_order>0</sort_order>
-                                        <children>
-                                            <save translate="title">
-                                                <title>Save Banner</title>
-                                                <sort_order>0</sort_order>
-                                            </save>
-                                            <delete translate="title">
-                                                <title>Delete Banner</title>
-                                                <sort_order>10</sort_order>
-                                            </delete>
-                                        </children>
+                                    <banner translate="title" module="xigen_bannermanager">
+                                        <title>Banner Management</title>
                                     </banner>
                                 </children>
-                            </bannermanager>
+                            </config>
                         </children>
-                    </cms>
+                    </system>
                 </children>
             </admin>
         </resources>
