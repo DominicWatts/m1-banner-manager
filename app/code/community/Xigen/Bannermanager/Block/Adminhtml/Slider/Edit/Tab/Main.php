@@ -5,7 +5,8 @@
  *
  * @author Xigen
  */
-class Xigen_Bannermanager_Block_Adminhtml_Slider_Edit_Tab_Main extends Xigen_Bannermanager_Block_Adminhtml_Form implements Mage_Adminhtml_Block_Widget_Tab_Interface {
+class Xigen_Bannermanager_Block_Adminhtml_Slider_Edit_Tab_Main extends Xigen_Bannermanager_Block_Adminhtml_Form implements Mage_Adminhtml_Block_Widget_Tab_Interface
+{
 
     /**
      * Prepare form elements for tab
@@ -116,7 +117,7 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider_Edit_Tab_Main extends Xigen_Ban
             'label'     => Mage::helper('xigen_bannermanager')->__('Categories'),
             'name'      => 'category_id',
             'disabled'  => $isElementDisabled,
-            'after_element_html' => 
+            'after_element_html' =>
                 '<a id="category_link" href="javascript:void(0)" onclick="toggleMainCategories()"><img src="' . $this->getSkinUrl('images/rule_chooser_trigger.gif') . '" alt="" class="v-middle rule-chooser-trigger" title="Select Categories"></a>
                 <div  id="categories_check">
                     <a href="javascript:toggleMainCategories(\'checkall\')">Check All</a> / <a href="javascript:toggleMainCategories(\'uncheckall\')">Uncheck All</a>

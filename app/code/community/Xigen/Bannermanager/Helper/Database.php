@@ -1,5 +1,6 @@
 <?php
-class Xigen_Bannermanager_Helper_Database extends Mage_Core_Helper_Data {
+class Xigen_Bannermanager_Helper_Database extends Mage_Core_Helper_Data
+{
         
     /**
      * Class constants
@@ -11,16 +12,16 @@ class Xigen_Bannermanager_Helper_Database extends Mage_Core_Helper_Data {
      * Slider table prefix
      * @return string
      */
-    public function getSliderPrefix() {
+    public function getSliderPrefix()
+    {
         return self::SLIDER;
     }
     /**
      * Banner table prefix
      * @return string
      */
-    public function getBannerPrefix() {
+    public function getBannerPrefix()
+    {
         return self::BANNER;
     }
-    
-   
 }

@@ -5,7 +5,8 @@
  *
  * @slider Xigen
  */
-class Xigen_Bannermanager_Helper_Admin extends Mage_Core_Helper_Abstract {
+class Xigen_Bannermanager_Helper_Admin extends Mage_Core_Helper_Abstract
+{
 
     /**
      * Check permission for passed action
@@ -13,7 +14,8 @@ class Xigen_Bannermanager_Helper_Admin extends Mage_Core_Helper_Abstract {
      * @param string $action
      * @return bool
      */
-    public function isActionAllowed($action) {
+    public function isActionAllowed($action)
+    {
         return Mage::getSingleton('admin/session')->isAllowed('banner/manage/' . $action);
     }
     
@@ -23,7 +25,8 @@ class Xigen_Bannermanager_Helper_Admin extends Mage_Core_Helper_Abstract {
      * @param string $action
      * @return bool
      */
-    public function isActionAllowedBanner($action) {
+    public function isActionAllowedBanner($action)
+    {
         return Mage::getSingleton('admin/session')->isAllowed('bannermanager/manage_banner/' . $action);
     }
 
@@ -33,16 +36,18 @@ class Xigen_Bannermanager_Helper_Admin extends Mage_Core_Helper_Abstract {
      * @param string $action
      * @return bool
      */
-    public function isActionAllowedSlider($action) {
+    public function isActionAllowedSlider($action)
+    {
         return Mage::getSingleton('admin/session')->isAllowed('slider/manage_slider/' . $action);
     }
 
     /**
      * Yes/No Grid array
-     * 
+     *
      * @return array
      */
-    public function getYesNo() {
+    public function getYesNo()
+    {
         return array(
             '0' => Mage::helper('xigen_bannermanager')->__('No'),
             '1' => Mage::helper('xigen_bannermanager')->__('Yes'),
@@ -54,17 +59,19 @@ class Xigen_Bannermanager_Helper_Admin extends Mage_Core_Helper_Abstract {
      * @param $value
      * @return string
      */
-    public function getYesNoValue($value) {
+    public function getYesNoValue($value)
+    {
         $array = $this->getYesNo();
         return $array[$value];
     }
     
     /**
      * Style Grid array
-     * 
+     *
      * @return array
      */
-    public function getStyle() {
+    public function getStyle()
+    {
         return array(
             'static'        => Mage::helper('xigen_bannermanager')->__('Static'),
             'single-static' => Mage::helper('xigen_bannermanager')->__('Single Static'),
@@ -77,17 +84,19 @@ class Xigen_Bannermanager_Helper_Admin extends Mage_Core_Helper_Abstract {
      * @param $value
      * @return string
      */
-    public function getStyleValue($value) {
+    public function getStyleValue($value)
+    {
         $array = $this->getYesNo();
         return $array[$value];
     }
     
     /**
      * Random/orderly Grid array
-     * 
+     *
      * @return array
      */
-    public function getRandomOrderly() {
+    public function getRandomOrderly()
+    {
         return array(
             'random'    => Mage::helper('xigen_bannermanager')->__('Random'),
             'orderly'   => Mage::helper('xigen_bannermanager')->__('Orderly'),
@@ -99,17 +108,19 @@ class Xigen_Bannermanager_Helper_Admin extends Mage_Core_Helper_Abstract {
      * @param $value
      * @return string
      */
-    public function getRandomOrderlyValue($value) {
+    public function getRandomOrderlyValue($value)
+    {
         $array = $this->getRandomOrderly();
         return $array[$value];
     }
     
     /**
      * Load sliders
-     * 
+     *
      * @return Xigen_Bannermanager_Model_Resource_Slider_Collection
      */
-    public function getSliders() {
+    public function getSliders()
+    {
         $this->_sliderPrefix = Mage::helper('xigen_bannermanager/database')->getSliderPrefix();
         $slidersCollection = Mage::getModel('xigen_bannermanager/slider')
                 ->getCollection()
@@ -121,10 +132,11 @@ class Xigen_Bannermanager_Helper_Admin extends Mage_Core_Helper_Abstract {
 
     /**
      * Load sliders into grid array
-     * 
+     *
      * @return array
      */
-    public function getSlidersArray() {
+    public function getSlidersArray()
+    {
         $_sliders = $this->getSliders();
         $options_array = array();
         foreach ($_sliders as $slider) {
@@ -137,7 +149,8 @@ class Xigen_Bannermanager_Helper_Admin extends Mage_Core_Helper_Abstract {
      * Get Position Block Ids
      * @return array
      */
-    public function getPostion() {
+    public function getPostion()
+    {
         return array(
             array(
                 'label' => $this->__('------- Position -------'),
@@ -216,22 +229,21 @@ class Xigen_Bannermanager_Helper_Admin extends Mage_Core_Helper_Abstract {
     
     /**
      * CMS page grid array
-     * 
+     *
      * @return array
      */
-    public function getPages() {
-        
+    public function getPages()
+    {
         $array = array(
             '' => $this->__('------- Optional page -------'),
         );
         
         $collection = Mage::getModel('cms/page')->getCollection()
             ->addFieldToFilter('is_active', 1);
-        foreach($collection as $item) {
+        foreach ($collection as $item) {
             $array[$item->getIdentifier()] = $item->getTitle();
         }
         
         return $array;
     }
-    
 }

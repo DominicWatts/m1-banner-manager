@@ -5,7 +5,8 @@
  *
  * @author Xigen
  */
-class Xigen_Bannermanager_Adminhtml_Bannermanager_BannerController extends Xigen_Bannermanager_Controller_Adminhtml_Abstract {
+class Xigen_Bannermanager_Adminhtml_Bannermanager_BannerController extends Xigen_Bannermanager_Controller_Adminhtml_Abstract
+{
 
     /**
      * Init actions
@@ -18,14 +19,14 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_BannerController extends Xigen
         $this->loadLayout()
             ->_setActiveMenu('banner/manage')
             ->_addBreadcrumb(
-                  Mage::helper('xigen_bannermanager')->__('Banner'),
-                  Mage::helper('xigen_bannermanager')->__('Banner')
-              )
+                Mage::helper('xigen_bannermanager')->__('Banner'),
+                Mage::helper('xigen_bannermanager')->__('Banner')
+            )
             ->_addBreadcrumb(
-                  Mage::helper('xigen_bannermanager')->__('Manage Banner'),
-                  Mage::helper('xigen_bannermanager')->__('Manage Banner')
-              )
-        ;
+                Mage::helper('xigen_bannermanager')->__('Manage Banner'),
+                Mage::helper('xigen_bannermanager')->__('Manage Banner')
+            );
+            
         return $this;
     }
 
@@ -162,26 +163,21 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_BannerController extends Xigen
                     $redirectPath   = '*/*/edit';
                     $redirectParams = array('id' => $model->getId());
                 }
-                
             } catch (Mage_Core_Exception $e) {
-                
                 $hasError = true;
                 $this->_getSession()->addError($e->getMessage());
-                
             } catch (Exception $e) {
-                
                 $hasError = true;
-                $this->_getSession()->addException($e,
+                $this->_getSession()->addException(
+                    $e,
                     Mage::helper('xigen_bannermanager')->__('An error occurred while saving the banner.')
                 );
             }
 
             if ($hasError) {
-                
                 $this->_getSession()->setFormData($data);
                 $redirectPath   = '*/*/edit';
                 $redirectParams = array('id' => $this->getRequest()->getParam($this->_bannerPrefix . 'id'));
-                
             }
         }
 
@@ -197,7 +193,6 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_BannerController extends Xigen
         $bannerId = $this->getRequest()->getParam('id');
         if ($bannerId) {
             try {
-                
                 // init model and delete
                 /** @var $model Xigen_Bannermanager_Model_Item */
                 $model = Mage::getModel('xigen_bannermanager/banner');
@@ -211,17 +206,14 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_BannerController extends Xigen
                 $this->_getSession()->addSuccess(
                     Mage::helper('xigen_bannermanager')->__('The banner has been deleted.')
                 );
-                
             } catch (Mage_Core_Exception $e) {
-                
                 $this->_getSession()->addError($e->getMessage());
-                
             } catch (Exception $e) {
+                $this->_getSession()->addException(
                 
-                $this->_getSession()->addException($e,
+                    $e,
                     Mage::helper('xigen_bannermanager')->__('An error occurred while deleting the banner.')
                 );
-                
             }
         }
 
@@ -238,7 +230,6 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_BannerController extends Xigen
         $bannerId = $this->getRequest()->getParam('id');
         if ($bannerId) {
             try {
-                
                 // init model and trash
                 /** @var $model Xigen_Bannermanager_Model_Comment */
                 $model = Mage::getModel('xigen_bannermanager/banner');
@@ -253,17 +244,14 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_BannerController extends Xigen
                 $this->_getSession()->addSuccess(
                     Mage::helper('xigen_bannermanager')->__('The banner has been put in the trash.')
                 );
-                
             } catch (Mage_Core_Exception $e) {
-                
                 $this->_getSession()->addError($e->getMessage());
-                
             } catch (Exception $e) {
+                $this->_getSession()->addException(
                 
-                $this->_getSession()->addException($e,
+                    $e,
                     Mage::helper('xigen_bannermanager')->__('An error occurred while moving the banner to the trash.')
                 );
-                
             }
         }
 
@@ -280,7 +268,6 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_BannerController extends Xigen
         $bannerId = $this->getRequest()->getParam('id');
         if ($bannerId) {
             try {
-                
                 // init model and trash
                 /** @var $model Xigen_Bannermanager_Model_Comment */
                 $model = Mage::getModel('xigen_bannermanager/banner');
@@ -295,17 +282,14 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_BannerController extends Xigen
                 $this->_getSession()->addSuccess(
                     Mage::helper('xigen_bannermanager')->__('The banner has been restored from trash.')
                 );
-                
             } catch (Mage_Core_Exception $e) {
-                
                 $this->_getSession()->addError($e->getMessage());
-                
             } catch (Exception $e) {
+                $this->_getSession()->addException(
                 
-                $this->_getSession()->addException($e,
+                    $e,
                     Mage::helper('xigen_bannermanager')->__('An error occurred while restoring the banner from the trash.')
                 );
-                
             }
         }
 
@@ -316,7 +300,8 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_BannerController extends Xigen
     /**
      * mass delete item(s) action
      */
-    public function massDeleteAction() {
+    public function massDeleteAction()
+    {
         $bannerIds = $this->getRequest()->getParam($this->_bannerPrefix);
         if (!is_array($bannerIds)) {
             Mage::getSingleton('adminhtml/session')->addError(Mage::helper('adminhtml')->__('Please select item(s)'));
@@ -335,10 +320,11 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_BannerController extends Xigen
         $this->_redirect('*/*/index', array('is_trash'=>'1'));
     }
     
-     /**
-     * mass delete item(s) action
-     */
-    public function massTrashAction() {
+    /**
+    * mass delete item(s) action
+    */
+    public function massTrashAction()
+    {
         $bannerIds = $this->getRequest()->getParam($this->_bannerPrefix);
         if (!is_array($bannerIds)) {
             Mage::getSingleton('adminhtml/session')->addError(Mage::helper('adminhtml')->__('Please select item(s)'));
@@ -358,10 +344,11 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_BannerController extends Xigen
         $this->_redirect('*/*/index');
     }
     
-     /**
-     * mass restore item(s) action
-     */
-    public function massRestoreAction() {
+    /**
+    * mass restore item(s) action
+    */
+    public function massRestoreAction()
+    {
         $bannerIds = $this->getRequest()->getParam($this->_bannerPrefix);
         if (!is_array($bannerIds)) {
             Mage::getSingleton('adminhtml/session')->addError(Mage::helper('adminhtml')->__('Please select item(s)'));
@@ -388,8 +375,6 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_BannerController extends Xigen
      */
     protected function _isAllowed()
     {
-
-
         switch ($this->getRequest()->getActionName()) {
             case 'new':
             case 'save':
@@ -428,19 +413,20 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_BannerController extends Xigen
     /**
      * Post ajax action
      */
-    public function postAction(){
+    public function postAction()
+    {
         $this->loadLayout();
         $this->getLayout()->getBlock('post.grid');
         $this->renderLayout();
     }
     
-     /**
-     * Post Grid ajax action
-     */
-    public function postgridAction(){
+    /**
+    * Post Grid ajax action
+    */
+    public function postgridAction()
+    {
         $this->loadLayout();
         $this->getLayout()->getBlock('post.grid');
         $this->renderLayout();
     }
-
 }
