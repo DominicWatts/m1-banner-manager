@@ -5,8 +5,8 @@
  *
  * @author Xigen
  */
-class Xigen_Bannermanager_Block_Abstract extends Mage_Core_Block_Template {
-    
+class Xigen_Bannermanager_Block_Abstract extends Mage_Core_Block_Template
+{
     protected $_sliderPrefix    = null;
     protected $_bannerPrefix    = null;
 
@@ -21,12 +21,11 @@ class Xigen_Bannermanager_Block_Abstract extends Mage_Core_Block_Template {
      * Init Model default properties
      *
      */
-    public function _construct() {
-
+    public function _construct()
+    {
         $this->_sliderPrefix = Mage::helper('xigen_bannermanager/database')->getSliderPrefix();
         $this->_bannerPrefix = Mage::helper('xigen_bannermanager/database')->getBannerPrefix();
         parent::_construct();
-        
     }
     
     /**
@@ -35,7 +34,8 @@ class Xigen_Bannermanager_Block_Abstract extends Mage_Core_Block_Template {
      * @param integer|string|Mage_Core_Model_Store $store
      * @return boolean
      */
-    public function isEnabled($store = null) {
+    public function isEnabled($store = null)
+    {
         return Mage::getStoreConfigFlag(self::XML_PATH_ENABLED, $store);
     }
 }

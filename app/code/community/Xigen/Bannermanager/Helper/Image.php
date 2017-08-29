@@ -190,7 +190,7 @@ class Xigen_Bannermanager_Helper_Image extends Mage_Core_Helper_Abstract
     {
         $cacheDir  = $this->getBaseDir() . DS . 'cache' . DS ;
         $io = new Varien_Io_File();
-        if ($io->fileExists($cacheDir, false) ) {
+        if ($io->fileExists($cacheDir, false)) {
             return $io->rmdir($cacheDir, true);
         }
         return true;

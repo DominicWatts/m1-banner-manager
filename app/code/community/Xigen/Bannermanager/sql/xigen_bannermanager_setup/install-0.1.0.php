@@ -45,7 +45,7 @@ if ($installer->getConnection()->isTableExists($sliderTableName) != true) {
             'unsigned' => true,
             'nullable' => true,
             'default'  => 1,
-        ), 'Show Title') 
+        ), 'Show Title')
         ->addColumn('store_id', Varien_Db_Ddl_Table::TYPE_VARCHAR, 255, array(
             'default'  => 0,
             'nullable' => false,
@@ -56,12 +56,12 @@ if ($installer->getConnection()->isTableExists($sliderTableName) != true) {
         ->addColumn($sliderPrefix . 'created_at', Varien_Db_Ddl_Table::TYPE_TIMESTAMP, null, array(
             'nullable' => true,
             'default'  => 'CURRENT_TIMESTAMP',
-        ), 'Creation time')  
+        ), 'Creation time')
         ->addColumn($sliderPrefix . 'is_trash', Varien_Db_Ddl_Table::TYPE_SMALLINT, 6, array(
             'unsigned' => true,
             'nullable' => true,
             'default'  => 0,
-        ), 'Is Trash')               
+        ), 'Is Trash')
         ->addColumn($sliderPrefix . 'is_active', Varien_Db_Ddl_Table::TYPE_SMALLINT, 6, array(
             'unsigned' => true,
             'nullable' => false,
@@ -96,7 +96,7 @@ if ($installer->getConnection()->isTableExists($bannerTableName) != true) {
         ->addColumn($bannerPrefix . 'image', Varien_Db_Ddl_Table::TYPE_TEXT, null, array(
             'nullable' => true,
             'default'  => null,
-        ), 'Banner image media path')          
+        ), 'Banner image media path')
         ->addColumn($bannerPrefix . 'link', Varien_Db_Ddl_Table::TYPE_VARCHAR, 255, array(
             'nullable' => true,
             'default'   => true,
@@ -115,7 +115,7 @@ if ($installer->getConnection()->isTableExists($bannerTableName) != true) {
         ->addColumn($bannerPrefix . 'sort_order', Varien_Db_Ddl_Table::TYPE_INTEGER, null, array(
             'nullable' => true,
             'default'  => null,
-        ), 'Sort Order') 
+        ), 'Sort Order')
         ->addColumn($bannerPrefix . 'is_trash', Varien_Db_Ddl_Table::TYPE_SMALLINT, 6, array(
             'unsigned' => true,
             'nullable' => true,
@@ -125,9 +125,12 @@ if ($installer->getConnection()->isTableExists($bannerTableName) != true) {
             'unsigned' => true,
             'nullable' => false,
             'default'  => '1',
-        ), 'Is active')   
-        ->addIndex($installer->getIdxName('xigen_bannermanager/banner', array($bannerPrefix . 'slider_id')),
-            array($bannerPrefix . 'slider_id'))
+        ), 'Is active')
+        ->addIndex(
+   
+            $installer->getIdxName('xigen_bannermanager/banner', array($bannerPrefix . 'slider_id')),
+            array($bannerPrefix . 'slider_id')
+        )
         ->addForeignKey(
             $installer->getFkName(
                 'xigen_bannermanager/banner',
@@ -135,8 +138,12 @@ if ($installer->getConnection()->isTableExists($bannerTableName) != true) {
                 'xigen_bannermanager/slider',
                 $sliderPrefix . 'id'
             ),
-            $bannerPrefix . 'slider_id', $sliderTableName, $sliderPrefix . 'id',
-            Varien_Db_Ddl_Table::ACTION_NO_ACTION, Varien_Db_Ddl_Table::ACTION_NO_ACTION)        
+            $bannerPrefix . 'slider_id',
+            $sliderTableName,
+            $sliderPrefix . 'id',
+            Varien_Db_Ddl_Table::ACTION_NO_ACTION,
+            Varien_Db_Ddl_Table::ACTION_NO_ACTION
+        )
     ->setComment('Xigen Banner');
 
     $installer->getConnection()->createTable($table);

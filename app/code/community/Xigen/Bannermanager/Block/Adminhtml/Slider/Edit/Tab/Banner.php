@@ -5,13 +5,15 @@
  *
  * @author Xigen
  */
-class Xigen_Bannermanager_Block_Adminhtml_Slider_Edit_Tab_Banner extends Xigen_Bannermanager_Block_Adminhtml_Grid {
+class Xigen_Bannermanager_Block_Adminhtml_Slider_Edit_Tab_Banner extends Xigen_Bannermanager_Block_Adminhtml_Grid
+{
 
     /**
      * Init Grid default properties
      *
      */
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->setId($this->_bannerPrefix . 'Grid');
         $this->setUseAjax(true);
@@ -25,7 +27,8 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider_Edit_Tab_Banner extends Xigen_B
      *
      * @return Xigen_Bannermanager_Block_Adminhtml_Grid
      */
-    protected function _prepareCollection() {
+    protected function _prepareCollection()
+    {
         $slider_id = $this->getRequest()->getParam('id');
         $collection = Mage::getModel('xigen_bannermanager/banner')->getResourceCollection();
         $collection->addFieldToFilter($this->_bannerPrefix . 'slider_id', $slider_id);
@@ -33,13 +36,14 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider_Edit_Tab_Banner extends Xigen_B
         return parent::_prepareCollection();
     }
 
-    protected function _addColumnFilterToCollection($column) {
+    protected function _addColumnFilterToCollection($column)
+    {
         parent::_addColumnFilterToCollection($column);
         return $this;
     }
 
-    protected function _prepareColumns() {
-
+    protected function _prepareColumns()
+    {
         $this->addColumn($this->_bannerPrefix . 'id', array(
             'header'    => Mage::helper('xigen_bannermanager')->__('ID'),
             'width'     => '50px',
@@ -69,7 +73,7 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider_Edit_Tab_Banner extends Xigen_B
             'type'     => 'datetime',
         ));
         
-        $this->addColumn($this->_bannerPrefix . 'sort_order',array(
+        $this->addColumn($this->_bannerPrefix . 'sort_order', array(
                  'header' => Mage::helper('xigen_bannermanager')->__('Sort Order'),
                  'align'  => 'left',
                  'width'  => '50px',
@@ -113,7 +117,8 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider_Edit_Tab_Banner extends Xigen_B
      * @param type $row
      * @return string
      */
-    public function getRowUrl($row) {
+    public function getRowUrl($row)
+    {
         return $this->getUrl('*/bannermanager_banner/edit', array('id' => $row->getId()));
     }
 
@@ -122,8 +127,8 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider_Edit_Tab_Banner extends Xigen_B
      *
      * @return string current grid url
      */
-    public function getGridUrl() {
+    public function getGridUrl()
+    {
         return $this->_getData('grid_url') ? $this->_getData('grid_url') : $this->getUrl('*/*/bannergrid', array('_current' => true));
     }
-
 }

@@ -9,7 +9,7 @@
 <config>
     <modules>
         <Xigen_Bannermanager>
-            <version>0.4.1</version>
+            <version>0.4.2</version>
         </Xigen_Bannermanager>
     </modules>
     <global>

@@ -16,20 +16,17 @@ class Xigen_Bannermanager_Block_Adminhtml_Banner_Edit extends Mage_Adminhtml_Blo
         $this->_blockGroup = 'xigen_bannermanager';
         $this->_controller = 'adminhtml_banner';
 
-         parent::__construct();
+        parent::__construct();
         
         $bannerId     = $this->getRequest()->getParam('id');
         $_banner      = Mage::getModel('xigen_bannermanager/banner')->load($bannerId);
 
-        if($_banner->getBannerIsTrash()) {
-            
+        if ($_banner->getBannerIsTrash()) {
             $this->_removeButton('save');
-            if($this->_updateButton('delete', 'label', Mage::helper('xigen_bannermanager')->__('Delete Banner'))) {
+            if ($this->_updateButton('delete', 'label', Mage::helper('xigen_bannermanager')->__('Delete Banner'))) {
                 $this->_updateButton('delete', 'label', Mage::helper('xigen_bannermanager')->__('Delete Banner'));
             }
-            
         } else {
-        
             if (Mage::helper('xigen_bannermanager/admin')->isActionAllowedBanner('save')) {
                 $this->_updateButton('save', 'label', Mage::helper('xigen_bannermanager')->__('Save Banner'));
                 $this->_addButton('saveandcontinue', array(
@@ -42,7 +39,7 @@ class Xigen_Bannermanager_Block_Adminhtml_Banner_Edit extends Mage_Adminhtml_Blo
             }
 
             if (Mage::helper('xigen_bannermanager/admin')->isActionAllowedBanner('delete')) {
-                 $this->_addButton('trash', array(
+                $this->_addButton('trash', array(
                     'label'     => Mage::helper('xigen_bannermanager')->__('Trash'),
                     'onclick'   => "setLocation('{$this->getUrl('*/*/trash', array('id' => $bannerId))}')",
                     'class'     => 'delete',
@@ -88,8 +85,10 @@ class Xigen_Bannermanager_Block_Adminhtml_Banner_Edit extends Mage_Adminhtml_Blo
     {
         $model = Mage::helper('xigen_bannermanager')->getBannerInstance();
         if ($model->getId()) {
-            return Mage::helper('xigen_bannermanager')->__("Edit '%s'",
-                 $this->escapeHtml($model->getBannerTitle()));
+            return Mage::helper('xigen_bannermanager')->__(
+                "Edit '%s'",
+                $this->escapeHtml($model->getBannerTitle())
+            );
         } else {
             return Mage::helper('xigen_bannermanager')->__('New Banner');
         }

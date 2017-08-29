@@ -5,7 +5,8 @@
  *
  * @author Xigen
  */
-class Xigen_Bannermanager_Adminhtml_Bannermanager_SliderController extends Xigen_Bannermanager_Controller_Adminhtml_Abstract {
+class Xigen_Bannermanager_Adminhtml_Bannermanager_SliderController extends Xigen_Bannermanager_Controller_Adminhtml_Abstract
+{
 
     /**
      * Init actions
@@ -18,14 +19,14 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_SliderController extends Xigen
         $this->loadLayout()
             ->_setActiveMenu('slider/manage')
             ->_addBreadcrumb(
-                  Mage::helper('xigen_bannermanager')->__('Slider'),
-                  Mage::helper('xigen_bannermanager')->__('Slider')
-              )
+                Mage::helper('xigen_bannermanager')->__('Slider'),
+                Mage::helper('xigen_bannermanager')->__('Slider')
+            )
             ->_addBreadcrumb(
-                  Mage::helper('xigen_bannermanager')->__('Manage Slider'),
-                  Mage::helper('xigen_bannermanager')->__('Manage Slider')
-              )
-        ;
+                Mage::helper('xigen_bannermanager')->__('Manage Slider'),
+                Mage::helper('xigen_bannermanager')->__('Manage Slider')
+            );
+
         return $this;
     }
 
@@ -108,7 +109,6 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_SliderController extends Xigen
         // check if data sent
         $data = $this->getRequest()->getPost();
         if ($data) {
-            
             if (isset($data['stores'])) {
                 if (in_array('0', $data['stores'])) {
                     $data['store_id'] = '0';
@@ -147,26 +147,21 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_SliderController extends Xigen
                     $redirectPath   = '*/*/edit';
                     $redirectParams = array('id' => $model->getId());
                 }
-                
             } catch (Mage_Core_Exception $e) {
-                
                 $hasError = true;
                 $this->_getSession()->addError($e->getMessage());
-                
             } catch (Exception $e) {
-                
                 $hasError = true;
-                $this->_getSession()->addException($e,
+                $this->_getSession()->addException(
+                    $e,
                     Mage::helper('xigen_bannermanager')->__('An error occurred while saving the slider.')
                 );
             }
 
             if ($hasError) {
-                
                 $this->_getSession()->setFormData($data);
                 $redirectPath   = '*/*/edit';
                 $redirectParams = array('id' => $this->getRequest()->getParam('id'));
-                
             }
         }
 
@@ -182,7 +177,6 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_SliderController extends Xigen
         $sliderId = $this->getRequest()->getParam('id');
         if ($sliderId) {
             try {
-                
                 // init model and delete
                 /** @var $model Xigen_Bannermanager_Model_Item */
                 $model = Mage::getModel('xigen_bannermanager/slider');
@@ -196,17 +190,14 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_SliderController extends Xigen
                 $this->_getSession()->addSuccess(
                     Mage::helper('xigen_bannermanager')->__('The slider has been deleted.')
                 );
-                
             } catch (Mage_Core_Exception $e) {
-                
                 $this->_getSession()->addError($e->getMessage());
-                
             } catch (Exception $e) {
+                $this->_getSession()->addException(
                 
-                $this->_getSession()->addException($e,
+                    $e,
                     Mage::helper('xigen_bannermanager')->__('An error occurred while deleting the slider.')
                 );
-                
             }
         }
 
@@ -223,7 +214,6 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_SliderController extends Xigen
         $sliderId = $this->getRequest()->getParam('id');
         if ($sliderId) {
             try {
-                
                 // init model and trash
                 /** @var $model Xigen_Bannermanager_Model_Comment */
                 $model = Mage::getModel('xigen_bannermanager/slider');
@@ -238,17 +228,14 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_SliderController extends Xigen
                 $this->_getSession()->addSuccess(
                     Mage::helper('xigen_bannermanager')->__('The slider has been put in the trash.')
                 );
-                
             } catch (Mage_Core_Exception $e) {
-                
                 $this->_getSession()->addError($e->getMessage());
-                
             } catch (Exception $e) {
+                $this->_getSession()->addException(
                 
-                $this->_getSession()->addException($e,
+                    $e,
                     Mage::helper('xigen_bannermanager')->__('An error occurred while moving the slider to the trash.')
                 );
-                
             }
         }
 
@@ -265,7 +252,6 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_SliderController extends Xigen
         $sliderId = $this->getRequest()->getParam('id');
         if ($sliderId) {
             try {
-                
                 // init model and trash
                 /** @var $model Xigen_Bannermanager_Model_Comment */
                 $model = Mage::getModel('xigen_bannermanager/slider');
@@ -280,17 +266,14 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_SliderController extends Xigen
                 $this->_getSession()->addSuccess(
                     Mage::helper('xigen_bannermanager')->__('The slider has been restored from trash.')
                 );
-                
             } catch (Mage_Core_Exception $e) {
-                
                 $this->_getSession()->addError($e->getMessage());
-                
             } catch (Exception $e) {
+                $this->_getSession()->addException(
                 
-                $this->_getSession()->addException($e,
+                    $e,
                     Mage::helper('xigen_bannermanager')->__('An error occurred while restoring the slider from the trash.')
                 );
-                
             }
         }
 
@@ -301,7 +284,8 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_SliderController extends Xigen
     /**
      * mass delete item(s) action
      */
-    public function massDeleteAction() {
+    public function massDeleteAction()
+    {
         $sliderIds = $this->getRequest()->getParam($this->_sliderPrefix);
         if (!is_array($sliderIds)) {
             Mage::getSingleton('adminhtml/session')->addError(Mage::helper('adminhtml')->__('Please select item(s)'));
@@ -320,10 +304,11 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_SliderController extends Xigen
         $this->_redirect('*/*/index', array('is_trash'=>'1'));
     }
     
-     /**
-     * mass delete item(s) action
-     */
-    public function massTrashAction() {
+    /**
+    * mass delete item(s) action
+    */
+    public function massTrashAction()
+    {
         $sliderIds = $this->getRequest()->getParam($this->_sliderPrefix);
         if (!is_array($sliderIds)) {
             Mage::getSingleton('adminhtml/session')->addError(Mage::helper('adminhtml')->__('Please select item(s)'));
@@ -343,10 +328,11 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_SliderController extends Xigen
         $this->_redirect('*/*/index');
     }
     
-     /**
-     * mass restore item(s) action
-     */
-    public function massRestoreAction() {
+    /**
+    * mass restore item(s) action
+    */
+    public function massRestoreAction()
+    {
         $sliderIds = $this->getRequest()->getParam($this->_sliderPrefix);
         if (!is_array($sliderIds)) {
             Mage::getSingleton('adminhtml/session')->addError(Mage::helper('adminhtml')->__('Please select item(s)'));
@@ -411,16 +397,18 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_SliderController extends Xigen
     /**
      * Post ajax action
      */
-    public function bannerAction(){
+    public function bannerAction()
+    {
         $this->loadLayout();
         $this->getLayout()->getBlock('banner.grid');
         $this->renderLayout();
     }
     
-     /**
-     * Post Grid ajax action
-     */
-    public function bannergridAction(){
+    /**
+    * Post Grid ajax action
+    */
+    public function bannergridAction()
+    {
         $this->loadLayout();
         $this->getLayout()->getBlock('banner.grid');
         $this->renderLayout();
@@ -429,8 +417,8 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_SliderController extends Xigen
     /**
      * Used in categories selector
      */
-    public function chooserMainCategoriesAction() {
-        
+    public function chooserMainCategoriesAction()
+    {
         $request = $this->getRequest();
         $ids = $request->getParam('selected', array());
 
@@ -448,8 +436,8 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_SliderController extends Xigen
         
         $block = $this->getLayout()
             ->createBlock(
-                'xigen_bannermanager/adminhtml_slider_edit_tab_categories', 
-                'content_category', 
+                'xigen_bannermanager/adminhtml_slider_edit_tab_categories',
+                'content_category',
                 array(
                     'js_form_object' => $request->getParam('form')
                 )
@@ -459,15 +447,14 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_SliderController extends Xigen
         if ($block) {
             $this->getResponse()->setBody($block->toHtml());
         }
-        
     }
 
     /**
      * Used in categories selector
      * @return mixed
      */
-    public function categoriesJsonAction() {
-        
+    public function categoriesJsonAction()
+    {
         if ($categoryId = (int) $this->getRequest()->getPost('id')) {
             $this->getRequest()->setParam('id', $categoryId);
 
@@ -482,7 +469,8 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_SliderController extends Xigen
         }
     }
     
-    protected function _initCategory() {
+    protected function _initCategory()
+    {
         $categoryId = (int) $this->getRequest()->getParam('id', false);
         $storeId = (int) $this->getRequest()->getParam('store');
 
@@ -505,5 +493,4 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_SliderController extends Xigen
 
         return $category;
     }
-
 }

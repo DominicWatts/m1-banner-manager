@@ -5,13 +5,15 @@
  *
  * @author Xigen
  */
-class Xigen_Bannermanager_Block_Adminhtml_Banner_Grid extends Xigen_Bannermanager_Block_Adminhtml_Grid {
+class Xigen_Bannermanager_Block_Adminhtml_Banner_Grid extends Xigen_Bannermanager_Block_Adminhtml_Grid
+{
 
     /**
      * Init Grid default properties
      *
      */
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->setId($this->_bannerPrefix . 'list_grid');
         $this->setDefaultSort($this->_bannerPrefix . 'slider_id');
@@ -81,9 +83,9 @@ class Xigen_Bannermanager_Block_Adminhtml_Banner_Grid extends Xigen_Bannermanage
             'header'    => Mage::helper('xigen_bannermanager')->__('Slider'),
             'frame_callback' => array($this, '_loadSlider'),
             'index'     => $this->_bannerPrefix . 'slider_id',
-        )); 
+        ));
         
-        $this->addColumn($this->_bannerPrefix . 'sort_order',array(
+        $this->addColumn($this->_bannerPrefix . 'sort_order', array(
                  'header' => Mage::helper('xigen_bannermanager')->__('Sort Order'),
                  'align'  => 'left',
                  'width'  => '50px',
@@ -151,7 +153,8 @@ class Xigen_Bannermanager_Block_Adminhtml_Banner_Grid extends Xigen_Bannermanage
      *
      * @return Xigen_Bannermanager_Block_Adminhtml_Banner_Grid
      */
-    protected function _prepareMassaction() {
+    protected function _prepareMassaction()
+    {
         $this->setMassactionIdField($this->_bannerPrefix . 'id');
         $this->getMassactionBlock()->setFormFieldName($this->_bannerPrefix);
 
@@ -176,5 +179,4 @@ class Xigen_Bannermanager_Block_Adminhtml_Banner_Grid extends Xigen_Bannermanage
             
         return $this;
     }
-    
 }

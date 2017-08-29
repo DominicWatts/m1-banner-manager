@@ -14,25 +14,27 @@ $bannerTableName    = $installer->getTable('xigen_bannermanager/banner');
 $installer->startSetup();
 
 $installer->getConnection()
-    ->addColumn($sliderTableName,
-    $sliderPrefix . 'position',
-    array(
+    ->addColumn(
+        $sliderTableName,
+        $sliderPrefix . 'position',
+        array(
         'type' => Varien_Db_Ddl_Table::TYPE_TEXT,
         'nullable' => true,
         'default' => null,
         'comment' => 'Position'
-    )
-);
+        )
+    );
 
 $installer->getConnection()
-    ->addColumn($sliderTableName,
-    $sliderPrefix . 'page',
-    array(
+    ->addColumn(
+        $sliderTableName,
+        $sliderPrefix . 'page',
+        array(
         'type' => Varien_Db_Ddl_Table::TYPE_TEXT,
         'nullable' => true,
         'default' => null,
         'comment' => 'Page'
-    )
-);
+        )
+    );
 
 $installer->endSetup();

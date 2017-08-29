@@ -32,8 +32,7 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider_Edit_Tab_Categories extends Mag
     {
         if (empty($ids)) {
             $ids = array();
-        }
-        elseif (!is_array($ids)) {
+        } elseif (!is_array($ids)) {
             $ids = array((int)$ids);
         }
         $this->_selectedIds = $ids;
@@ -53,7 +52,7 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider_Edit_Tab_Categories extends Mag
         $item['text']= $this->htmlEscape($node->getName());
 
         if ($this->_withProductCount) {
-             $item['text'].= ' ('.$node->getProductCount().')';
+            $item['text'].= ' ('.$node->getProductCount().')';
         }
         $item['id']  = $node->getId();
         $item['path'] = $node->getData('path');
@@ -89,9 +88,8 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider_Edit_Tab_Categories extends Mag
      * @param type $recursionLevel
      * @return mixed
      */
-    public function getRoot($parentNodeCategory = null, $recursionLevel = 3) {
+    public function getRoot($parentNodeCategory = null, $recursionLevel = 3)
+    {
         return $this->getRootByIds($this->getCategoryIds());
     }
 }
-
-

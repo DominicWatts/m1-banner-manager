@@ -7,7 +7,8 @@
  */
 class Xigen_Bannermanager_Block_Adminhtml_System_Configuration_Setting extends Mage_Adminhtml_Block_System_Config_Form_Field
 {
-    protected function _getElementHtml(Varien_Data_Form_Element_Abstract $element){
+    protected function _getElementHtml(Varien_Data_Form_Element_Abstract $element)
+    {
         return '<div class="entry-edit-head collapseable"><a onclick="Fieldset.toggleCollapse(\'bannermanager_template\'); return false;" href="#" id="bannermanager_template-head" class="open">Snippets</a></div>
                 <input id="bannermanager_template-state" type="hidden" value="1" name="config_state[bannermanager_template]">
                 <fieldset id="bannermanager_template" class="config collapseable" style="">

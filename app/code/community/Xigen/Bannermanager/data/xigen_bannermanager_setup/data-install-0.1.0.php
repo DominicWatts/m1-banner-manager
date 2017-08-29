@@ -103,10 +103,10 @@ $bannerRows = array(
         $bannerPrefix . 'slider_id'     => '2',
         $bannerPrefix . 'sort_order'    => '1',
         $bannerPrefix . 'is_trash'      => '0',
-    ),    
+    ),
 );
 
 // Generate banner items
 foreach ($bannerRows as $bannerData) {
-   $banner->setData($bannerData)->setOrigData()->save();
+    $banner->setData($bannerData)->setOrigData()->save();
 }
