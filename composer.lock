@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ccfedc1e4f170ad549f1091692471118",
-    "content-hash": "512354097d7bb0707f6a2bb595236bae",
+    "hash": "6c9e3fea35dede32abae51e7f21b6ce2",
+    "content-hash": "43f5fc629f3245c22dacf8072f194e1c",
     "packages": [],
     "packages-dev": [
         {
@@ -979,6 +979,40 @@
             "homepage": "http://github.com/kherge/Version",
             "abandoned": true,
             "time": "2012-08-16 17:13:03"
+        },
+        {
+            "name": "magento-ecg/coding-standard",
+            "version": "3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/magento-ecg/coding-standard.git",
+                "reference": "fbeeb7ad68de02b15753d56dda9493af9c35bcaf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/magento-ecg/coding-standard/zipball/fbeeb7ad68de02b15753d56dda9493af9c35bcaf",
+                "reference": "fbeeb7ad68de02b15753d56dda9493af9c35bcaf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "squizlabs/php_codesniffer": "^3.0"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Magento Expert Consulting Group",
+                    "homepage": "http://magentocommerce.com/consulting",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "A set of PHP_CodeSniffer rules and sniffs.",
+            "homepage": "https://github.com/magento-ecg/coding-standard",
+            "time": "2017-06-30 19:00:28"
         },
         {
             "name": "monolog/monolog",
