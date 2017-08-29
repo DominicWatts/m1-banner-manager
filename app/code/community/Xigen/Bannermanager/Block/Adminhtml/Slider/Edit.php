@@ -16,20 +16,17 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider_Edit extends Mage_Adminhtml_Blo
         $this->_blockGroup = 'xigen_bannermanager';
         $this->_controller = 'adminhtml_slider';
 
-         parent::__construct();
+        parent::__construct();
         
         $sliderId     = $this->getRequest()->getParam('id');
         $_slider      = Mage::getModel('xigen_bannermanager/slider')->load($sliderId);
 
-        if($_slider->getSliderIsTrash()) {
-            
+        if ($_slider->getSliderIsTrash()) {
             $this->_removeButton('save');
-            if($this->_updateButton('delete', 'label', Mage::helper('xigen_bannermanager')->__('Delete Slider'))) {
+            if ($this->_updateButton('delete', 'label', Mage::helper('xigen_bannermanager')->__('Delete Slider'))) {
                 $this->_updateButton('delete', 'label', Mage::helper('xigen_bannermanager')->__('Delete Slider'));
             }
-            
         } else {
-        
             if (Mage::helper('xigen_bannermanager/admin')->isActionAllowedSlider('save')) {
                 $this->_updateButton('save', 'label', Mage::helper('xigen_bannermanager')->__('Save Slider'));
                 $this->_addButton('saveandcontinue', array(
@@ -42,7 +39,7 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider_Edit extends Mage_Adminhtml_Blo
             }
 
             if (Mage::helper('xigen_bannermanager/admin')->isActionAllowedSlider('delete')) {
-                 $this->_addButton('trash', array(
+                $this->_addButton('trash', array(
                     'label'     => Mage::helper('xigen_bannermanager')->__('Trash'),
                     'onclick'   => "setLocation('{$this->getUrl('*/*/trash', array('id' => $sliderId))}')",
                     'class'     => 'delete',
@@ -88,8 +85,10 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider_Edit extends Mage_Adminhtml_Blo
     {
         $model = Mage::helper('xigen_bannermanager')->getSliderInstance();
         if ($model->getId()) {
-            return Mage::helper('xigen_bannermanager')->__("Edit '%s'",
-                 $this->escapeHtml($model->getSliderTitle()));
+            return Mage::helper('xigen_bannermanager')->__(
+                "Edit '%s'",
+                 $this->escapeHtml($model->getSliderTitle())
+            );
         } else {
             return Mage::helper('xigen_bannermanager')->__('New Slider');
         }

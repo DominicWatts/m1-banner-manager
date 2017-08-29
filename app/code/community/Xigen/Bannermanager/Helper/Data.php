@@ -5,7 +5,8 @@
  *
  * @author Xigen
  */
-class Xigen_Bannermanager_Helper_Data extends Mage_Core_Helper_Data {
+class Xigen_Bannermanager_Helper_Data extends Mage_Core_Helper_Data
+{
 
     /**
      * Path to store config if front-end output is enabled
@@ -34,7 +35,8 @@ class Xigen_Bannermanager_Helper_Data extends Mage_Core_Helper_Data {
      * @param integer|string|Mage_Core_Model_Store $store
      * @return boolean
      */
-    public function isEnabled($store = null) {
+    public function isEnabled($store = null)
+    {
         return Mage::getStoreConfigFlag(self::XML_PATH_ENABLED, $store);
     }
     
@@ -43,7 +45,8 @@ class Xigen_Bannermanager_Helper_Data extends Mage_Core_Helper_Data {
      *
      * @return Xigen_Bannermanager_Model_Banner
      */
-    public function getBannerInstance() {
+    public function getBannerInstance()
+    {
         if (!$this->_bannerInstance) {
             $this->_bannerInstance = Mage::registry('xigen_bannermanager_banner');
 
@@ -53,14 +56,15 @@ class Xigen_Bannermanager_Helper_Data extends Mage_Core_Helper_Data {
         }
 
         return $this->_bannerInstance;
-    }    
+    }
     
     /**
      * Return current slider item instance from the Registry
      *
      * @return Xigen_Bannermanager_Model_Slider
      */
-    public function getSliderInstance() {
+    public function getSliderInstance()
+    {
         if (!$this->_sliderInstance) {
             $this->_sliderInstance = Mage::registry('xigen_bannermanager_slider');
 
@@ -70,7 +74,5 @@ class Xigen_Bannermanager_Helper_Data extends Mage_Core_Helper_Data {
         }
 
         return $this->_sliderInstance;
-    }    
-
-
+    }
 }

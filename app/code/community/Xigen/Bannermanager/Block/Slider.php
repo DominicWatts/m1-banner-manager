@@ -4,13 +4,15 @@
  * Slider block
  * @author Xigen
  */
-class Xigen_Bannermanager_Block_Slider extends Xigen_Bannermanager_Block_Abstract {
+class Xigen_Bannermanager_Block_Slider extends Xigen_Bannermanager_Block_Abstract
+{
    
     /**
      * Preparing global layout
      * @return Mage_Core_Block_Abstract
      */
-    public function _prepareLayout() {
+    public function _prepareLayout()
+    {
         return parent::_prepareLayout();
     }
 
@@ -18,7 +20,8 @@ class Xigen_Bannermanager_Block_Slider extends Xigen_Bannermanager_Block_Abstrac
      * Get image base url
      * @return string
      */
-    public function getBaseUrl() {
+    public function getBaseUrl()
+    {
         /* @var $imageHelper Xigen_Bannermanager_Helper_Image */
         $imageHelper = Mage::helper('xigen_bannermanager/image');
         return $imageHelper->getBaseUrl();
@@ -26,27 +29,26 @@ class Xigen_Bannermanager_Block_Slider extends Xigen_Bannermanager_Block_Abstrac
 
     /**
      * Get slider data, this block logic is called manually using details in the help text
-     * Template file 
+     * Template file
      * <?php echo $this->getLayout()->createBlock('xigen_bannermanager/slider')->setTemplate('xigen/bannermanager/slider.phtml')->setSliderId('your_slider_id')->toHtml(); ?>
-     * CMS Page 
+     * CMS Page
      * {{block type="xigen_bannermanager/slider" name="xigen.bannermanager.slider" template="xigen/bannermanager/slider.phtml" slider_id="your_slider_id"}}
-     * Layout XML  
+     * Layout XML
      * <block type="xigen_bannermanager/slider" name="xigen.bannermanager.slider" template="xigen/bannermanager/slider.phtml">
      *  <action method="setSliderId"><slider_id>your_slider_id</slider_id></action>
      * </block>
      * @return mixed
      */
-    public function getSliderData() {
-                
-        if(!$this->isEnabled()) {
+    public function getSliderData()
+    {
+        if (!$this->isEnabled()) {
             return false;
         }
         
         if (!$this->hasData('banner_data')) {
-
             if ($slider_id = $this->getSliderId()) {
                 $banner_data = Mage::getModel('xigen_bannermanager/slider')->load($slider_id);
-                if($banner_data->getStoreId() > 0) {
+                if ($banner_data->getStoreId() > 0) {
                     $store_ids = explode(',', $banner_data->getStoreId());
                     if (!in_array(Mage::app()->getStore()->getStoreId(), $store_ids)) {
                         return false;
@@ -92,9 +94,9 @@ class Xigen_Bannermanager_Block_Slider extends Xigen_Bannermanager_Block_Abstrac
      * @param mixed $result
      * @return mixed
      */
-    public function sliderTemplate($style = false, $result = false) {
-        
-        if($style == false || $result == false) {
+    public function sliderTemplate($style = false, $result = false)
+    {
+        if ($style == false || $result == false) {
             return false;
         }
                         
@@ -104,8 +106,4 @@ class Xigen_Bannermanager_Block_Slider extends Xigen_Bannermanager_Block_Abstrac
                 ->setTemplate('xigen/bannermanager/' . $style . '.phtml')
                 ->toHtml();
     }
-
- 
-    
-    
 }

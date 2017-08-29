@@ -5,7 +5,8 @@
  *
  * @author Xigen
  */
-class Xigen_Bannermanager_Block_Adminhtml_Banner_Edit_Tab_Main extends Xigen_Bannermanager_Block_Adminhtml_Form implements Mage_Adminhtml_Block_Widget_Tab_Interface {
+class Xigen_Bannermanager_Block_Adminhtml_Banner_Edit_Tab_Main extends Xigen_Bannermanager_Block_Adminhtml_Form implements Mage_Adminhtml_Block_Widget_Tab_Interface
+{
 
     /**
      * Prepare form elements for tab
@@ -84,7 +85,7 @@ class Xigen_Bannermanager_Block_Adminhtml_Banner_Edit_Tab_Main extends Xigen_Ban
         $validationErrorMessage = addslashes(Mage::helper('xigen_bannermanager')->__("Please use only letters (a-z or A-Z), numbers (0-9) or symbols '-', '_', '\', '/', '#' and ':' in this field"));
 
         $fieldset->addField($this->_bannerPrefix . 'link', 'text', array(
-            'name'               => $this->_bannerPrefix . 'link',            
+            'name'               => $this->_bannerPrefix . 'link',
             'label'              => Mage::helper('xigen_bannermanager')->__('Link'),
             'title'              => Mage::helper('xigen_bannermanager')->__('Link'),
             'class'              => 'xigen-bannermanager-validate-link',
@@ -110,7 +111,7 @@ class Xigen_Bannermanager_Block_Adminhtml_Banner_Edit_Tab_Main extends Xigen_Ban
             'disabled' => $isElementDisabled
         ));
          
-         $fieldset->addField($this->_bannerPrefix . 'caption_note', 'note', array(
+        $fieldset->addField($this->_bannerPrefix . 'caption_note', 'note', array(
             'label'    => Mage::helper('xigen_bannermanager')->__('Banner Caption'),
             'title'    => Mage::helper('xigen_bannermanager')->__('Banner Caption'),
         ));

@@ -14,7 +14,8 @@ $bannerTableName    = $installer->getTable('xigen_bannermanager/banner');
 $installer->startSetup();
 
 $installer->getConnection()
-    ->addColumn($bannerTableName,
+    ->addColumn(
+        $bannerTableName,
     $bannerPrefix . 'youtube',
     array(
         'type' => Varien_Db_Ddl_Table::TYPE_TEXT,

@@ -5,13 +5,15 @@
  *
  * @author Xigen
  */
-class Xigen_Bannermanager_Block_Adminhtml_Slider_Grid extends Xigen_Bannermanager_Block_Adminhtml_Grid {
+class Xigen_Bannermanager_Block_Adminhtml_Slider_Grid extends Xigen_Bannermanager_Block_Adminhtml_Grid
+{
 
     /**
      * Init Grid default properties
      *
      */
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->setId($this->_sliderPrefix . 'list_grid');
         $this->setDefaultSort($this->_sliderPrefix . 'id');
@@ -87,7 +89,7 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider_Grid extends Xigen_Bannermanage
             'type'     => 'datetime',
         ));
 
-        $this->addColumn($this->_sliderPrefix . 'sort',array(
+        $this->addColumn($this->_sliderPrefix . 'sort', array(
                  'header' => Mage::helper('xigen_bannermanager')->__('Sort Type'),
                  'align'  => 'left',
                  'width'  => '50px',
@@ -155,7 +157,8 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider_Grid extends Xigen_Bannermanage
      *
      * @return Xigen_Bannermanager_Block_Adminhtml_Slider_Grid
      */
-    protected function _prepareMassaction() {
+    protected function _prepareMassaction()
+    {
         $this->setMassactionIdField($this->_sliderPrefix . 'id');
         $this->getMassactionBlock()->setFormFieldName($this->_sliderPrefix);
 
@@ -187,11 +190,11 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider_Grid extends Xigen_Bannermanage
      * @param string $column
      * @return mixed
      */
-    protected function _filterStoreCondition($collection, $column) {
+    protected function _filterStoreCondition($collection, $column)
+    {
         if (!$value = $column->getFilter()->getValue()) {
             return;
         }
         $this->getCollection()->addStoreFilter($value);
     }
-    
 }
