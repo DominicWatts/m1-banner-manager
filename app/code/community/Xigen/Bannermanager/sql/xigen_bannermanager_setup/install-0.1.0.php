@@ -130,7 +130,6 @@ if ($installer->getConnection()->isTableExists($bannerTableName) != true) {
    
             $installer->getIdxName('xigen_bannermanager/banner', array($bannerPrefix . 'slider_id')),
             array($bannerPrefix . 'slider_id')
-   
         )
         ->addForeignKey(
             $installer->getFkName(

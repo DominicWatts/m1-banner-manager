@@ -16,13 +16,13 @@ $installer->startSetup();
 $installer->getConnection()
     ->addColumn(
         $sliderTableName,
-    'category_id',
-    array(
+        'category_id',
+        array(
         'type' => Varien_Db_Ddl_Table::TYPE_TEXT,
         'nullable' => true,
         'default' => null,
         'comment' => 'Category Id'
-    )
-);
+        )
+    );
 
 $installer->endSetup();

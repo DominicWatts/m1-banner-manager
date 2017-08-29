@@ -82,7 +82,9 @@ class Xigen_Bannermanager_Block_Adminhtml_Banner_Edit_Tab_Main extends Xigen_Ban
             'disabled' => $isElementDisabled
         ));
         
+        // @codingStandardsIgnoreStart
         $validationErrorMessage = addslashes(Mage::helper('xigen_bannermanager')->__("Please use only letters (a-z or A-Z), numbers (0-9) or symbols '-', '_', '\', '/', '#' and ':' in this field"));
+        // @codingStandardsIgnoreEnd
 
         $fieldset->addField($this->_bannerPrefix . 'link', 'text', array(
             'name'               => $this->_bannerPrefix . 'link',

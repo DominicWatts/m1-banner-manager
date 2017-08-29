@@ -87,7 +87,7 @@ class Xigen_Bannermanager_Block_Adminhtml_Banner_Edit extends Mage_Adminhtml_Blo
         if ($model->getId()) {
             return Mage::helper('xigen_bannermanager')->__(
                 "Edit '%s'",
-                 $this->escapeHtml($model->getBannerTitle())
+                $this->escapeHtml($model->getBannerTitle())
             );
         } else {
             return Mage::helper('xigen_bannermanager')->__('New Banner');

@@ -87,7 +87,7 @@ class Xigen_Bannermanager_Block_Adminhtml_Slider_Edit extends Mage_Adminhtml_Blo
         if ($model->getId()) {
             return Mage::helper('xigen_bannermanager')->__(
                 "Edit '%s'",
-                 $this->escapeHtml($model->getSliderTitle())
+                $this->escapeHtml($model->getSliderTitle())
             );
         } else {
             return Mage::helper('xigen_bannermanager')->__('New Slider');

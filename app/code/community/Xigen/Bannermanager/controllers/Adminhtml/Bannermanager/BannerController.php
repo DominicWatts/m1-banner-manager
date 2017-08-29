@@ -19,14 +19,14 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_BannerController extends Xigen
         $this->loadLayout()
             ->_setActiveMenu('banner/manage')
             ->_addBreadcrumb(
-                  Mage::helper('xigen_bannermanager')->__('Banner'),
-                  Mage::helper('xigen_bannermanager')->__('Banner')
-              )
+                Mage::helper('xigen_bannermanager')->__('Banner'),
+                Mage::helper('xigen_bannermanager')->__('Banner')
+            )
             ->_addBreadcrumb(
-                  Mage::helper('xigen_bannermanager')->__('Manage Banner'),
-                  Mage::helper('xigen_bannermanager')->__('Manage Banner')
-              )
-        ;
+                Mage::helper('xigen_bannermanager')->__('Manage Banner'),
+                Mage::helper('xigen_bannermanager')->__('Manage Banner')
+            );
+            
         return $this;
     }
 
@@ -193,7 +193,6 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_BannerController extends Xigen
         $bannerId = $this->getRequest()->getParam('id');
         if ($bannerId) {
             try {
-                
                 // init model and delete
                 /** @var $model Xigen_Bannermanager_Model_Item */
                 $model = Mage::getModel('xigen_bannermanager/banner');
@@ -231,7 +230,6 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_BannerController extends Xigen
         $bannerId = $this->getRequest()->getParam('id');
         if ($bannerId) {
             try {
-                
                 // init model and trash
                 /** @var $model Xigen_Bannermanager_Model_Comment */
                 $model = Mage::getModel('xigen_bannermanager/banner');
@@ -270,7 +268,6 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_BannerController extends Xigen
         $bannerId = $this->getRequest()->getParam('id');
         if ($bannerId) {
             try {
-                
                 // init model and trash
                 /** @var $model Xigen_Bannermanager_Model_Comment */
                 $model = Mage::getModel('xigen_bannermanager/banner');

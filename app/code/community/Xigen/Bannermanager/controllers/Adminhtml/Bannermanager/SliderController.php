@@ -19,14 +19,14 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_SliderController extends Xigen
         $this->loadLayout()
             ->_setActiveMenu('slider/manage')
             ->_addBreadcrumb(
-                  Mage::helper('xigen_bannermanager')->__('Slider'),
-                  Mage::helper('xigen_bannermanager')->__('Slider')
-              )
+                Mage::helper('xigen_bannermanager')->__('Slider'),
+                Mage::helper('xigen_bannermanager')->__('Slider')
+            )
             ->_addBreadcrumb(
-                  Mage::helper('xigen_bannermanager')->__('Manage Slider'),
-                  Mage::helper('xigen_bannermanager')->__('Manage Slider')
-              )
-        ;
+                Mage::helper('xigen_bannermanager')->__('Manage Slider'),
+                Mage::helper('xigen_bannermanager')->__('Manage Slider')
+            );
+
         return $this;
     }
 
@@ -177,7 +177,6 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_SliderController extends Xigen
         $sliderId = $this->getRequest()->getParam('id');
         if ($sliderId) {
             try {
-                
                 // init model and delete
                 /** @var $model Xigen_Bannermanager_Model_Item */
                 $model = Mage::getModel('xigen_bannermanager/slider');
@@ -215,7 +214,6 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_SliderController extends Xigen
         $sliderId = $this->getRequest()->getParam('id');
         if ($sliderId) {
             try {
-                
                 // init model and trash
                 /** @var $model Xigen_Bannermanager_Model_Comment */
                 $model = Mage::getModel('xigen_bannermanager/slider');
@@ -254,7 +252,6 @@ class Xigen_Bannermanager_Adminhtml_Bannermanager_SliderController extends Xigen
         $sliderId = $this->getRequest()->getParam('id');
         if ($sliderId) {
             try {
-                
                 // init model and trash
                 /** @var $model Xigen_Bannermanager_Model_Comment */
                 $model = Mage::getModel('xigen_bannermanager/slider');
